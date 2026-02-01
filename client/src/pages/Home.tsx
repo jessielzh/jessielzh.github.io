@@ -39,8 +39,20 @@ export default function Home() {
           <div className="md:col-span-4 space-y-16 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             
             <section>
+              <div className="mb-8">
+                <img 
+                  src="https://jessielzh.com/wp-content/uploads/2024/09/profile-jessieli.jpeg" 
+                  alt="Jessie Li" 
+                  className="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+
               <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Experience</h3>
               <ul className="space-y-6">
+                <li className="group">
+                  <div className="font-bold group-hover:text-primary transition-colors">Chief Scientist</div>
+                  <div className="text-muted-foreground text-sm">Hangzhou City Brain</div>
+                </li>
                 <li className="group">
                   <div className="font-bold group-hover:text-primary transition-colors">Professor (Tenured)</div>
                   <div className="text-muted-foreground text-sm">Pennsylvania State University</div>
