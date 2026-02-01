@@ -287,33 +287,77 @@ export default function Home() {
                     <div className="group">
                       <div className="text-xs font-bold uppercase text-primary mb-1">Tutorial</div>
                       <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Learning with Small Data</h5>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                         A tutorial at KDD 2020 conference. Introducing the methods how to build machine learning models when you only have a small amount of data.
                       </p>
+                      <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden border border-border">
+                        <iframe 
+                          width="100%" 
+                          height="100%" 
+                          src="https://www.youtube.com/embed/Vjrnst2X1ms" 
+                          title="Learning with Small Data" 
+                          frameBorder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
                     </div>
                     
                     <div className="group">
                       <div className="text-xs font-bold uppercase text-primary mb-1">Documentary</div>
                       <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">City Brain</h5>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                         Documentary of my sabbatical leave in Hangzhou working on city brain open research in 2019 (in Chinese).
                       </p>
+                      <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden border border-border">
+                        <iframe 
+                          width="100%" 
+                          height="100%" 
+                          src="https://www.youtube.com/embed/RCXiswPeHn4" 
+                          title="City Brain Documentary" 
+                          frameBorder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
                     </div>
 
                     <div className="group">
                       <div className="text-xs font-bold uppercase text-primary mb-1">Talk</div>
                       <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Mining Human Mobility Data</h5>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                         Talk at the Institute of Transportation Studies (ITS) in University of California – Berkeley on April 13, 2018.
                       </p>
+                      <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden border border-border">
+                        <iframe 
+                          width="100%" 
+                          height="100%" 
+                          src="https://www.youtube.com/embed/KABMWgEUwlA" 
+                          title="Mining Human Mobility Data" 
+                          frameBorder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
                     </div>
 
                     <div className="group">
                       <div className="text-xs font-bold uppercase text-primary mb-1">Interview</div>
                       <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">My Experience as a Female in Tech</h5>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                         A short interview by Women Data Leaders in Russia project during KDD 2019 conference.
                       </p>
+                      <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden border border-border">
+                        <iframe 
+                          width="100%" 
+                          height="100%" 
+                          src="https://www.youtube.com/embed/Ag4tx0AzafI" 
+                          title="My Experience as a Female in Tech" 
+                          frameBorder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
                     </div>
 
                     <div className="group">
