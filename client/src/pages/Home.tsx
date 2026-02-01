@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, MapPin, FileText, Video, Newspaper } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Video, Newspaper } from "lucide-react";
 
 export default function Home() {
   return (
@@ -63,21 +63,12 @@ export default function Home() {
             </section>
 
             <section>
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Connect</h3>
               <div className="flex flex-wrap gap-4">
                 <Button asChild variant="outline" className="rounded-none border-2 border-foreground hover:bg-foreground hover:text-background transition-all font-bold w-full justify-between">
                   <a href="https://scholar.google.com/citations?user=r0nnyGYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
                     Google Scholar <ArrowUpRight className="ml-2 w-4 h-4" />
                   </a>
                 </Button>
-              </div>
-            </section>
-
-            <section className="p-6 bg-secondary/50 border border-border">
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-4 text-primary font-mono">Research Interests</h3>
-              <div className="font-bold text-lg mb-2">AI for Science</div>
-              <div className="flex flex-wrap gap-2 text-sm font-mono text-muted-foreground">
-                <span>City</span> • <span>Environment</span> • <span>Traffic</span>
               </div>
             </section>
           </div>
@@ -90,10 +81,10 @@ export default function Home() {
               
               <div className="prose prose-lg max-w-none text-muted-foreground">
                 <p className="text-xl font-medium text-foreground mb-6">
-                  Cross-Disciplinary Data-Driven Research
+                  AI for Science and Engineering
                 </p>
                 <p className="mb-4">
-                  Data revolutionizes all research fields. I am curious how data make new discoveries across a variety of fields and how data make changes in the real world.
+                  I am curious how data make new discoveries across a variety of fields and how data make changes in the real world.
                 </p>
                 <p className="mb-12">
                   I develop computational techniques to release the power of data.
@@ -103,12 +94,20 @@ export default function Home() {
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Traffic Signal Control</h4>
                     <p className="text-sm mb-3">Pioneer in the research topic on reinforcement learning for traffic signal control</p>
+                    
+                    <div className="mb-4 text-sm">
+                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
+                      Vikash Gayah (Civil Engineering, Penn State), Traffic policy makers in Hangzhou, Nanchang, Wuxi
+                    </div>
+
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2">
                         <li>Intellilight: A reinforcement learning approach for intelligent traffic light control (KDD 2018)</li>
                         <li>Presslight: Learning max pressure control to coordinate traffic signals in arterial network (KDD 2019)</li>
                         <li>CityFlow: A Multi-Agent Reinforcement Learning Environment for Large Scale City Traffic Scenario (WWW 2019)</li>
+                        <li>Toward a thousand lights: Decentralized deep reinforcement learning for large-scale traffic signal control (AAAI 2020)</li>
+                        <li>Recent Advances in Reinforcement Learning for Traffic Signal Control: A Survey of Models and Evaluation (SIGKDD Explorations 2020)</li>
                       </ul>
                     </div>
                   </div>
@@ -116,11 +115,19 @@ export default function Home() {
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Environment</h4>
                     <p className="text-sm mb-3">Big data analysis for water quality in the area of shale gas development</p>
+                    
+                    <div className="mb-4 text-sm">
+                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
+                      Susan Brantley (Geosciences, Penn State), Tao Wen (Earth and Environmental Sciences, Syracuse University)
+                    </div>
+
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2">
                         <li>Searching for Anomalous Methane in Shallow Groundwater near Shale Gas Wells (Journal of Contaminant Hydrology 2016)</li>
                         <li>Contextual Spatial Outlier Detection with Metric Learning (KDD 2017)</li>
+                        <li>Big groundwater data sets reveal possible rare contamination amid otherwise improved water quality for some analytes in a region of Marcellus Shale development (Environmental Science & Technology 2018)</li>
+                        <li>Knowledge-based Residual Learning (IJCAI 2021)</li>
                       </ul>
                     </div>
                   </div>
@@ -128,11 +135,19 @@ export default function Home() {
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Crime</h4>
                     <p className="text-sm mb-3">Using open city data to better understand crime rates</p>
+                    
+                    <div className="mb-4 text-sm">
+                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
+                      Corina Graif (Sociology and Criminology, Penn State), Daniel Kifer (Computer Science and Engineering, Penn State)
+                    </div>
+
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2">
                         <li>Crime Rate Inference with Big Data (KDD 2016)</li>
                         <li>Non-Stationary Model for Crime Rate Inference Using Modern Urban Data (Transaction of Big Data 2017)</li>
+                        <li>Region Representation Learning via Mobility Flow (CIKM 2017)</li>
+                        <li>Network spillovers and neighborhood crime: A computational statistics analysis of employment-based networks of neighborhoods (Justice Quarterly 2021)</li>
                       </ul>
                     </div>
                   </div>
@@ -140,11 +155,19 @@ export default function Home() {
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Traffic Prediction</h4>
                     <p className="text-sm mb-3">We are among the first to study deep learning for traffic prediction</p>
+                    
+                    <div className="mb-4 text-sm">
+                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
+                      Work in collaboration with DiDi Chuxing
+                    </div>
+
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2">
                         <li>Deep multi-view spatial-temporal network for taxi demand prediction (AAAI 2018)</li>
                         <li>Revisiting spatial-temporal similarity: A deep learning framework for traffic prediction (AAAI 2019)</li>
+                        <li>Learning from multiple cities: A meta-learning approach for spatial-temporal prediction (WWW 2019)</li>
+                        <li>Hierarchically Structured Meta-Learning (ICML 2019)</li>
                       </ul>
                     </div>
                   </div>
@@ -152,11 +175,19 @@ export default function Home() {
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Ecology</h4>
                     <p className="text-sm mb-3">Discover animal behaviors and relationships through their movement traces</p>
+                    
+                    <div className="mb-4 text-sm">
+                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
+                      Roland Kays (NC Museum of Natural Sciences), Meg Crofoot (Max Planck Institute of Animal Behavior)
+                    </div>
+
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2">
                         <li>Mining Periodic Behaviors for Moving Objects (KDD 2010)</li>
                         <li>Swarm: Mining Relaxed Temporal Moving Object Clusters (VLDB 2010)</li>
+                        <li>Mining Following Relationships in Movement Data (ICDM 2013)</li>
+                        <li>Attraction and Avoidance Detection from Movements (VLDB 2014)</li>
                       </ul>
                     </div>
                   </div>
@@ -217,24 +248,6 @@ export default function Home() {
                       <div className="font-bold group-hover:text-primary transition-colors">Data on taxi routes and points of interest may improve crime predictions</div>
                     </a>
                   </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="bg-primary text-primary-foreground p-8 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <FileText className="w-32 h-32" />
-              </div>
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-4 font-mono">News & Updates</h3>
-              <div className="space-y-4 relative z-10">
-                <div>
-                  <div className="font-bold text-lg">CIKM Program Co-chair</div>
-                  <p className="text-primary-foreground/80 text-sm mt-1">Excited to serve this year. Submission deadline: May 23, 2025.</p>
-                </div>
-                <div className="w-12 h-0.5 bg-primary-foreground/30"></div>
-                <div>
-                  <div className="font-bold text-lg">Looking for Interns</div>
-                  <p className="text-primary-foreground/80 text-sm mt-1">Start dates are flexible. Email resume if interested.</p>
                 </div>
               </div>
             </section>
