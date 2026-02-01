@@ -96,63 +96,7 @@ export default function Home() {
                   AI for Science and Engineering
                 </p>
 
-                {/* Top 5 Cited Work Section */}
-                <div className="mb-16 bg-secondary/30 p-6 border border-border">
-                  <h4 className="text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2 text-primary">
-                    <Trophy className="w-4 h-4" /> Top 5 Cited Work
-                  </h4>
-                  <div className="space-y-6">
-                    <div className="group">
-                      <div className="flex justify-between items-start gap-4">
-                        <a href="https://scholar.google.com/scholar?q=Deep+multi-view+spatial-temporal+network+for+taxi+demand+prediction" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
-                          Deep multi-view spatial-temporal network for taxi demand prediction
-                        </a>
-                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">1549 citations</span>
-                      </div>
-                      <div className="text-xs text-muted-foreground mt-1 font-mono">AAAI 2018</div>
-                    </div>
 
-                    <div className="group">
-                      <div className="flex justify-between items-start gap-4">
-                        <a href="https://scholar.google.com/scholar?q=Revisiting+spatial-temporal+similarity%3A+A+deep+learning+framework+for+traffic+prediction" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
-                          Revisiting spatial-temporal similarity: A deep learning framework for traffic prediction
-                        </a>
-                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">1235 citations</span>
-                      </div>
-                      <div className="text-xs text-muted-foreground mt-1 font-mono">AAAI 2019</div>
-                    </div>
-
-                    <div className="group">
-                      <div className="flex justify-between items-start gap-4">
-                        <a href="https://scholar.google.com/scholar?q=Generalized+fisher+score+for+feature+selection" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
-                          Generalized fisher score for feature selection
-                        </a>
-                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">1203 citations</span>
-                      </div>
-                      <div className="text-xs text-muted-foreground mt-1 font-mono">arXiv 2012</div>
-                    </div>
-
-                    <div className="group">
-                      <div className="flex justify-between items-start gap-4">
-                        <a href="https://scholar.google.com/scholar?q=DRN%3A+A+deep+reinforcement+learning+framework+for+news+recommendation" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
-                          DRN: A deep reinforcement learning framework for news recommendation
-                        </a>
-                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">1005 citations</span>
-                      </div>
-                      <div className="text-xs text-muted-foreground mt-1 font-mono">WWW 2018</div>
-                    </div>
-
-                    <div className="group">
-                      <div className="flex justify-between items-start gap-4">
-                        <a href="https://scholar.google.com/scholar?q=Intellilight%3A+A+reinforcement+learning+approach+for+intelligent+traffic+light+control" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
-                          Intellilight: A reinforcement learning approach for intelligent traffic light control
-                        </a>
-                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">923 citations</span>
-                      </div>
-                      <div className="text-xs text-muted-foreground mt-1 font-mono">KDD 2018</div>
-                    </div>
-                  </div>
-                </div>
 
                 <div className="grid gap-12">
                   <div className="group">
@@ -283,38 +227,38 @@ export default function Home() {
                   
                   <div className="grid gap-4 pl-6 border-l border-border">
                     <div className="group">
-                      <a href="https://huaxiuyao.io/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Huaxiu Yao (2021)</a>
+                      <a href="https://huaxiuyao.io/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Huaxiu Yao (2017-2021)</a>
                       <div className="text-sm text-muted-foreground">Assistant Professor at University of North Carolina Chapel Hill</div>
                     </div>
 
                     <div className="group">
-                      <a href="https://porterjenkins.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Porter Jenkins (2020)</a>
+                      <a href="https://science.byu.edu/directory/porter-jenkins" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Porter Jenkins (2017-2020)</a>
                       <div className="text-sm text-muted-foreground">Assistant Professor at Brigham Young University</div>
                     </div>
 
                     <div className="group">
-                      <a href="https://www.public.asu.edu/~hwei10/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Hua Wei (2020)</a>
+                      <a href="https://labs.engineering.asu.edu/hw/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Hua Wei (2017-2020)</a>
                       <div className="text-sm text-muted-foreground">Assistant Professor at Arizona State University</div>
                     </div>
 
                     <div className="group">
-                      <a href="https://gjzheng.org/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Guanjie Zheng (2020)</a>
+                      <a href="https://gjzheng.org/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Guanjie Zheng (2015-2020)</a>
                       <div className="text-sm text-muted-foreground">Assistant Professor at Shanghai Jiao Tong University</div>
                     </div>
 
                     <div className="group">
-                      <a href="https://www.linkedin.com/in/yu-hsuan-kuo-3b1b1b1b/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Yu-Hsuan Kuo (2018)</a>
+                      <a href="https://www.linkedin.com/in/yuhsuankuo/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Yu-Hsuan Kuo (2013-2018)</a>
                       <div className="text-sm text-muted-foreground">Applied Scientist at Amazon</div>
                     </div>
 
                     <div className="group">
-                      <a href="https://www.linkedin.com/in/hongjian-wang-3b1b1b1b/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Hongjian Wang (2018)</a>
+                      <a href="https://www.linkedin.com/in/hongjian-wang-3b1b1b1b/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Hongjian Wang (2013-2018)</a>
                       <div className="text-sm text-muted-foreground">Staff ML Engineer at Twitter</div>
                     </div>
 
                     <div className="group">
-                      <a href="https://www.linkedin.com/in/fei-wu-3b1b1b1b/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Fei Wu (2018)</a>
-                      <div className="text-sm text-muted-foreground">Staff Research Scientist at Meta</div>
+                      <a href="https://www.linkedin.com/in/fei-wu-3b1b1b1b/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Fei Wu (2013-2018)</a>
+                      <div className="text-sm text-muted-foreground">Staff Software Engineer at Meta</div>
                     </div>
                   </div>
                 </div>
@@ -324,7 +268,7 @@ export default function Home() {
                   
                   <div className="grid gap-4 pl-6 border-l border-border">
                     <div className="group">
-                      <a href="https://thecollege.syr.edu/people/faculty/wen-tao/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Tao Wen (PostDoc 2017-2020)</a>
+                      <a href="https://thecollege.syr.edu/people/faculty/wen-tao/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Tao Wen (2017-2020)</a>
                       <div className="text-sm text-muted-foreground">Assistant Professor at Syracuse University</div>
                     </div>
                   </div>
