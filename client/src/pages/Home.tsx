@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy } from "lucide-react";
+import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap } from "lucide-react";
 
 export default function Home() {
   return (
@@ -268,6 +268,64 @@ export default function Home() {
                         <span className="font-bold text-xs uppercase mr-2">Collaborations:</span>
                         Roland Kays (NC Museum of Natural Sciences), Meg Crofoot (Max Planck Institute of Animal Behavior)
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Advising</h3>
+              
+              <div className="grid gap-8">
+                <div className="space-y-6">
+                  <h4 className="font-bold flex items-center gap-2 text-lg"><GraduationCap className="w-5 h-5" /> PhD at Penn State</h4>
+                  
+                  <div className="grid gap-4 pl-6 border-l border-border">
+                    <div className="group">
+                      <a href="https://huaxiuyao.io/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Huaxiu Yao (2021)</a>
+                      <div className="text-sm text-muted-foreground">Assistant Professor at University of North Carolina Chapel Hill</div>
+                    </div>
+
+                    <div className="group">
+                      <a href="https://porterjenkins.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Porter Jenkins (2020)</a>
+                      <div className="text-sm text-muted-foreground">Assistant Professor at Brigham Young University</div>
+                    </div>
+
+                    <div className="group">
+                      <a href="https://www.public.asu.edu/~hwei10/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Hua Wei (2020)</a>
+                      <div className="text-sm text-muted-foreground">Assistant Professor at Arizona State University</div>
+                    </div>
+
+                    <div className="group">
+                      <a href="https://gjzheng.org/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Guanjie Zheng (2020)</a>
+                      <div className="text-sm text-muted-foreground">Assistant Professor at Shanghai Jiao Tong University</div>
+                    </div>
+
+                    <div className="group">
+                      <a href="https://www.linkedin.com/in/yu-hsuan-kuo-3b1b1b1b/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Yu-Hsuan Kuo (2018)</a>
+                      <div className="text-sm text-muted-foreground">Applied Scientist at Amazon</div>
+                    </div>
+
+                    <div className="group">
+                      <a href="https://www.linkedin.com/in/hongjian-wang-3b1b1b1b/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Hongjian Wang (2018)</a>
+                      <div className="text-sm text-muted-foreground">Staff ML Engineer at Twitter</div>
+                    </div>
+
+                    <div className="group">
+                      <a href="https://www.linkedin.com/in/fei-wu-3b1b1b1b/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Fei Wu (2018)</a>
+                      <div className="text-sm text-muted-foreground">Staff Research Scientist at Meta</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <h4 className="font-bold flex items-center gap-2 text-lg"><Users className="w-5 h-5" /> Post Doc at Penn State</h4>
+                  
+                  <div className="grid gap-4 pl-6 border-l border-border">
+                    <div className="group">
+                      <a href="https://thecollege.syr.edu/people/faculty/wen-tao/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Tao Wen (PostDoc 2017-2020)</a>
+                      <div className="text-sm text-muted-foreground">Assistant Professor at Syracuse University</div>
                     </div>
                   </div>
                 </div>
