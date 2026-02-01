@@ -83,12 +83,7 @@ export default function Home() {
                 <p className="text-xl font-medium text-foreground mb-6">
                   AI for Science and Engineering
                 </p>
-                <p className="mb-4">
-                  I am curious how data make new discoveries across a variety of fields and how data make changes in the real world.
-                </p>
-                <p className="mb-12">
-                  I develop computational techniques to release the power of data.
-                </p>
+
 
                 <div className="grid gap-12">
                   <div className="group">
