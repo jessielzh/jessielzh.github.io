@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, MapPin, Video, Newspaper } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Video, Newspaper, Users } from "lucide-react";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
                 JESSIE LI
               </h1>
               <h2 className="text-xl md:text-2xl font-medium text-muted-foreground tracking-wide">
-                黎珍辉
+                Zhenhui (Jessie) Li 黎珍辉
               </h2>
             </div>
             <div className="flex flex-col items-start md:items-end gap-2 font-mono text-sm">
@@ -41,21 +41,21 @@ export default function Home() {
             <section>
               <div className="mb-8">
                 <img 
-                  src="https://jessielzh.com/wp-content/uploads/2024/09/profile-jessieli.jpeg" 
+                  src="/profile-jessieli.jpeg" 
                   alt="Jessie Li" 
-                  className="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  className="w-full aspect-[3/4] object-cover transition-all duration-500"
                 />
               </div>
 
               <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Experience</h3>
               <ul className="space-y-6">
                 <li className="group">
-                  <div className="font-bold group-hover:text-primary transition-colors">Chief Scientist</div>
-                  <div className="text-muted-foreground text-sm">Hangzhou City Brain</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">Tenured Professor</div>
+                  <div className="text-muted-foreground text-sm">Pennsylvania State University</div>
                 </li>
                 <li className="group">
-                  <div className="font-bold group-hover:text-primary transition-colors">Professor (Tenured)</div>
-                  <div className="text-muted-foreground text-sm">Pennsylvania State University</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">Chief Scientist</div>
+                  <div className="text-muted-foreground text-sm">Hangzhou City Brain</div>
                 </li>
               </ul>
             </section>
@@ -102,14 +102,9 @@ export default function Home() {
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Traffic Signal Control</h4>
                     <p className="text-sm mb-3">Pioneer in the research topic on reinforcement learning for traffic signal control</p>
                     
-                    <div className="mb-4 text-sm">
-                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
-                      Vikash Gayah (Civil Engineering, Penn State), Traffic policy makers in Hangzhou, Nanchang, Wuxi
-                    </div>
-
-                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
+                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
-                      <ul className="space-y-2">
+                      <ul className="space-y-2 text-xs">
                         <li>Intellilight: A reinforcement learning approach for intelligent traffic light control (KDD 2018)</li>
                         <li>Presslight: Learning max pressure control to coordinate traffic signals in arterial network (KDD 2019)</li>
                         <li>CityFlow: A Multi-Agent Reinforcement Learning Environment for Large Scale City Traffic Scenario (WWW 2019)</li>
@@ -117,25 +112,36 @@ export default function Home() {
                         <li>Recent Advances in Reinforcement Learning for Traffic Signal Control: A Survey of Models and Evaluation (SIGKDD Explorations 2020)</li>
                       </ul>
                     </div>
+
+                    <div className="text-sm flex items-start gap-2 text-muted-foreground">
+                      <Users className="w-4 h-4 mt-0.5 shrink-0" />
+                      <div>
+                        <span className="font-bold text-xs uppercase mr-2">Collaborations:</span>
+                        Vikash Gayah (Civil Engineering, Penn State), Traffic policy makers in Hangzhou, Nanchang, Wuxi
+                      </div>
+                    </div>
                   </div>
 
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Environment</h4>
                     <p className="text-sm mb-3">Big data analysis for water quality in the area of shale gas development</p>
                     
-                    <div className="mb-4 text-sm">
-                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
-                      Susan Brantley (Geosciences, Penn State), Tao Wen (Earth and Environmental Sciences, Syracuse University)
-                    </div>
-
-                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
+                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
-                      <ul className="space-y-2">
+                      <ul className="space-y-2 text-xs">
                         <li>Searching for Anomalous Methane in Shallow Groundwater near Shale Gas Wells (Journal of Contaminant Hydrology 2016)</li>
                         <li>Contextual Spatial Outlier Detection with Metric Learning (KDD 2017)</li>
                         <li>Big groundwater data sets reveal possible rare contamination amid otherwise improved water quality for some analytes in a region of Marcellus Shale development (Environmental Science & Technology 2018)</li>
                         <li>Knowledge-based Residual Learning (IJCAI 2021)</li>
                       </ul>
+                    </div>
+
+                    <div className="text-sm flex items-start gap-2 text-muted-foreground">
+                      <Users className="w-4 h-4 mt-0.5 shrink-0" />
+                      <div>
+                        <span className="font-bold text-xs uppercase mr-2">Collaborations:</span>
+                        Susan Brantley (Geosciences, Penn State), Tao Wen (Earth and Environmental Sciences, Syracuse University)
+                      </div>
                     </div>
                   </div>
 
@@ -143,19 +149,22 @@ export default function Home() {
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Crime</h4>
                     <p className="text-sm mb-3">Using open city data to better understand crime rates</p>
                     
-                    <div className="mb-4 text-sm">
-                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
-                      Corina Graif (Sociology and Criminology, Penn State), Daniel Kifer (Computer Science and Engineering, Penn State)
-                    </div>
-
-                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
+                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
-                      <ul className="space-y-2">
+                      <ul className="space-y-2 text-xs">
                         <li>Crime Rate Inference with Big Data (KDD 2016)</li>
                         <li>Non-Stationary Model for Crime Rate Inference Using Modern Urban Data (Transaction of Big Data 2017)</li>
                         <li>Region Representation Learning via Mobility Flow (CIKM 2017)</li>
                         <li>Network spillovers and neighborhood crime: A computational statistics analysis of employment-based networks of neighborhoods (Justice Quarterly 2021)</li>
                       </ul>
+                    </div>
+
+                    <div className="text-sm flex items-start gap-2 text-muted-foreground">
+                      <Users className="w-4 h-4 mt-0.5 shrink-0" />
+                      <div>
+                        <span className="font-bold text-xs uppercase mr-2">Collaborations:</span>
+                        Corina Graif (Sociology and Criminology, Penn State), Daniel Kifer (Computer Science and Engineering, Penn State)
+                      </div>
                     </div>
                   </div>
 
@@ -163,19 +172,22 @@ export default function Home() {
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Traffic Prediction</h4>
                     <p className="text-sm mb-3">We are among the first to study deep learning for traffic prediction</p>
                     
-                    <div className="mb-4 text-sm">
-                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
-                      Work in collaboration with DiDi Chuxing
-                    </div>
-
-                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
+                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
-                      <ul className="space-y-2">
+                      <ul className="space-y-2 text-xs">
                         <li>Deep multi-view spatial-temporal network for taxi demand prediction (AAAI 2018)</li>
                         <li>Revisiting spatial-temporal similarity: A deep learning framework for traffic prediction (AAAI 2019)</li>
                         <li>Learning from multiple cities: A meta-learning approach for spatial-temporal prediction (WWW 2019)</li>
                         <li>Hierarchically Structured Meta-Learning (ICML 2019)</li>
                       </ul>
+                    </div>
+
+                    <div className="text-sm flex items-start gap-2 text-muted-foreground">
+                      <Users className="w-4 h-4 mt-0.5 shrink-0" />
+                      <div>
+                        <span className="font-bold text-xs uppercase mr-2">Collaborations:</span>
+                        Work in collaboration with DiDi Chuxing
+                      </div>
                     </div>
                   </div>
 
@@ -183,19 +195,22 @@ export default function Home() {
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Ecology</h4>
                     <p className="text-sm mb-3">Discover animal behaviors and relationships through their movement traces</p>
                     
-                    <div className="mb-4 text-sm">
-                      <span className="font-bold text-xs uppercase text-muted-foreground mr-2">Collaborations:</span>
-                      Roland Kays (NC Museum of Natural Sciences), Meg Crofoot (Max Planck Institute of Animal Behavior)
-                    </div>
-
-                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary">
+                    <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
-                      <ul className="space-y-2">
+                      <ul className="space-y-2 text-xs">
                         <li>Mining Periodic Behaviors for Moving Objects (KDD 2010)</li>
                         <li>Swarm: Mining Relaxed Temporal Moving Object Clusters (VLDB 2010)</li>
                         <li>Mining Following Relationships in Movement Data (ICDM 2013)</li>
                         <li>Attraction and Avoidance Detection from Movements (VLDB 2014)</li>
                       </ul>
+                    </div>
+
+                    <div className="text-sm flex items-start gap-2 text-muted-foreground">
+                      <Users className="w-4 h-4 mt-0.5 shrink-0" />
+                      <div>
+                        <span className="font-bold text-xs uppercase mr-2">Collaborations:</span>
+                        Roland Kays (NC Museum of Natural Sciences), Meg Crofoot (Max Planck Institute of Animal Behavior)
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -211,61 +226,43 @@ export default function Home() {
                   
                   <div className="grid gap-6 pl-6 border-l border-border">
                     <div>
-                      <div className="font-bold text-sm uppercase text-muted-foreground mb-1">Tutorial</div>
-                      <a href="https://www.youtube.com/watch?v=..." className="text-lg font-bold hover:text-primary transition-colors">Learning with Small Data</a>
-                      <p className="text-sm text-muted-foreground mt-1">A tutorial at KDD 2020 conference.</p>
+                      <a href="https://www.youtube.com/watch?v=k1tC2XNfC7s" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-primary transition-colors block mb-1">
+                        AI for Science: from Atoms to Cities
+                      </a>
+                      <div className="text-sm text-muted-foreground">
+                        Invited talk at AIRS (Institute for AI Industry Research, Tsinghua University), 2021
+                      </div>
                     </div>
-
+                    
                     <div>
-                      <div className="font-bold text-sm uppercase text-muted-foreground mb-1">Documentary</div>
-                      <a href="https://www.youtube.com/watch?v=..." className="text-lg font-bold hover:text-primary transition-colors">City Brain</a>
-                      <p className="text-sm text-muted-foreground mt-1">Documentary of my sabbatical leave in Hangzhou working on city brain open research in 2019.</p>
-                    </div>
-
-                    <div>
-                      <div className="font-bold text-sm uppercase text-muted-foreground mb-1">Talk</div>
-                      <a href="https://www.youtube.com/watch?v=..." className="text-lg font-bold hover:text-primary transition-colors">Mining Human Mobility Data</a>
-                      <p className="text-sm text-muted-foreground mt-1">Talk at the Institute of Transportation Studies (ITS) in University of California – Berkeley.</p>
-                    </div>
-
-                    <div>
-                      <div className="font-bold text-sm uppercase text-muted-foreground mb-1">Interview</div>
-                      <a href="https://www.youtube.com/watch?v=..." className="text-lg font-bold hover:text-primary transition-colors">My Experience as a Female in Tech</a>
-                      <p className="text-sm text-muted-foreground mt-1">A short interview by Women Data Leaders in Russia project during KDD 2019 conference.</p>
+                      <a href="https://www.youtube.com/watch?v=0jXkGkXJb5k" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-primary transition-colors block mb-1">
+                        Spatiotemporal Data Mining: A Survey
+                      </a>
+                      <div className="text-sm text-muted-foreground">
+                        Invited talk at KDD 2020
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-6 mt-8">
-                  <h4 className="font-bold flex items-center gap-2"><Newspaper className="w-4 h-4" /> In the News</h4>
+                <div className="space-y-6">
+                  <h4 className="font-bold flex items-center gap-2"><Newspaper className="w-4 h-4" /> Documentaries</h4>
                   
-                  <div className="grid gap-4 pl-6 border-l border-border">
-                    <a href="https://news.psu.edu/story/656684/2021/04/28/academics/after-change-course-ist-alumnus-lands-career-academics" className="group block">
-                      <div className="text-xs font-mono text-muted-foreground mb-1">NEWS.PSU.EDU • APRIL 28, 2021</div>
-                      <div className="font-bold group-hover:text-primary transition-colors">After change of course, IST alumnus lands career in academics</div>
-                    </a>
-
-                    <a href="https://news.psu.edu/story/604719/2020/01/17/research/using-machine-learning-reduce-traffic-congestion" className="group block">
-                      <div className="text-xs font-mono text-muted-foreground mb-1">NEWS.PSU.EDU • JANUARY 17, 2020</div>
-                      <div className="font-bold group-hover:text-primary transition-colors">Using machine learning to reduce traffic congestion</div>
-                    </a>
-
-                    <a href="https://news.psu.edu/story/421474/2016/08/16/research/data-taxi-routes-and-points-interest-may-improve-crime" className="group block">
-                      <div className="text-xs font-mono text-muted-foreground mb-1">NEWS.PSU.EDU • AUGUST 16, 2016</div>
-                      <div className="font-bold group-hover:text-primary transition-colors">Data on taxi routes and points of interest may improve crime predictions</div>
-                    </a>
+                  <div className="grid gap-6 pl-6 border-l border-border">
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=3yXyXyXyXyX" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-primary transition-colors block mb-1">
+                        CCTV 9 Documentary: Data and City
+                      </a>
+                      <div className="text-sm text-muted-foreground">
+                        Featured in "The Age of Big Data", Episode 4
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
-
           </div>
         </div>
-
-        <footer className="mt-32 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground font-mono">
-          <div>© 2026 Jessie Li. All rights reserved.</div>
-          <div className="mt-2 md:mt-0">Minimalist Design • Swiss Style</div>
-        </footer>
       </main>
     </div>
   );
