@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, MapPin, Video, Newspaper, Users } from "lucide-react";
+import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen } from "lucide-react";
 
 export default function Home() {
   return (
@@ -14,21 +14,21 @@ export default function Home() {
         {/* Header / Hero Section */}
         <header className="mb-24 animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b-4 border-foreground pb-8">
-            <div>
-              <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-4">
-                JESSIE LI
-              </h1>
-              <h2 className="text-xl md:text-2xl font-medium text-muted-foreground tracking-wide">
-                Zhenhui (Jessie) Li 黎珍辉
-              </h2>
+            <div className="flex items-center gap-6">
+              <img src="/logo.png" alt="Jessie Li Logo" className="h-24 w-auto object-contain" />
+              <div>
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none mb-2 font-display">
+                  JESSIE LI
+                </h1>
+                <h2 className="text-xl md:text-2xl font-medium text-muted-foreground tracking-wide">
+                  Zhenhui (Jessie) Li 黎珍辉
+                </h2>
+              </div>
             </div>
             <div className="flex flex-col items-start md:items-end gap-2 font-mono text-sm">
               <a href="mailto:jessielzh@gmail.com" className="hover:text-primary transition-colors flex items-center gap-2 group">
                 jessielzh@gmail.com <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
               </a>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                Hangzhou, China <MapPin className="w-4 h-4" />
-              </div>
             </div>
           </div>
         </header>
@@ -186,7 +186,7 @@ export default function Home() {
                       <Users className="w-4 h-4 mt-0.5 shrink-0" />
                       <div>
                         <span className="font-bold text-xs uppercase mr-2">Collaborations:</span>
-                        Work in collaboration with DiDi Chuxing
+                        DiDi Chuxing
                       </div>
                     </div>
                   </div>
@@ -218,44 +218,78 @@ export default function Home() {
             </section>
 
             <section>
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Media & Talks</h3>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Media</h3>
               
-              <div className="grid gap-8">
-                <div className="space-y-6">
-                  <h4 className="font-bold flex items-center gap-2"><Video className="w-4 h-4" /> On Youtube</h4>
+              <div className="grid gap-12">
+                <div className="space-y-8">
+                  <h4 className="font-bold flex items-center gap-2 text-lg"><Youtube className="w-5 h-5" /> On Youtube</h4>
                   
-                  <div className="grid gap-6 pl-6 border-l border-border">
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=k1tC2XNfC7s" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-primary transition-colors block mb-1">
-                        AI for Science: from Atoms to Cities
-                      </a>
-                      <div className="text-sm text-muted-foreground">
-                        Invited talk at AIRS (Institute for AI Industry Research, Tsinghua University), 2021
-                      </div>
+                  <div className="grid gap-8 pl-6 border-l border-border">
+                    <div className="group">
+                      <div className="text-xs font-bold uppercase text-primary mb-1">Tutorial</div>
+                      <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Learning with Small Data</h5>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        A tutorial at KDD 2020 conference. Introducing the methods how to build machine learning models when you only have a small amount of data.
+                      </p>
                     </div>
                     
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=0jXkGkXJb5k" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-primary transition-colors block mb-1">
-                        Spatiotemporal Data Mining: A Survey
-                      </a>
-                      <div className="text-sm text-muted-foreground">
-                        Invited talk at KDD 2020
-                      </div>
+                    <div className="group">
+                      <div className="text-xs font-bold uppercase text-primary mb-1">Documentary</div>
+                      <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">City Brain</h5>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Documentary of my sabbatical leave in Hangzhou working on city brain open research in 2019 (in Chinese).
+                      </p>
+                    </div>
+
+                    <div className="group">
+                      <div className="text-xs font-bold uppercase text-primary mb-1">Talk</div>
+                      <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Mining Human Mobility Data</h5>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Talk at the Institute of Transportation Studies (ITS) in University of California – Berkeley on April 13, 2018.
+                      </p>
+                    </div>
+
+                    <div className="group">
+                      <div className="text-xs font-bold uppercase text-primary mb-1">Interview</div>
+                      <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">My Experience as a Female in Tech</h5>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        A short interview by Women Data Leaders in Russia project during KDD 2019 conference.
+                      </p>
+                    </div>
+
+                    <div className="group">
+                      <div className="text-xs font-bold uppercase text-primary mb-1">Tutorial</div>
+                      <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Mining Animal Relationships from Movement Traces</h5>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Tutorial presented at Symposium on Animal Movement, held at the North Carolina Museum of Natural Sciences in Raleigh on May 7, 2014.
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-6">
-                  <h4 className="font-bold flex items-center gap-2"><Newspaper className="w-4 h-4" /> Documentaries</h4>
+                <div className="space-y-8">
+                  <h4 className="font-bold flex items-center gap-2 text-lg"><Newspaper className="w-5 h-5" /> In the News</h4>
                   
                   <div className="grid gap-6 pl-6 border-l border-border">
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=3yXyXyXyXyX" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-primary transition-colors block mb-1">
-                        CCTV 9 Documentary: Data and City
+                    <div className="group">
+                      <div className="text-xs font-mono text-muted-foreground mb-1">NEWS.PSU.EDU on APRIL 28, 2021</div>
+                      <a href="#" className="font-bold text-lg hover:text-primary transition-colors block">
+                        After change of course, IST alumnus lands career in academics
                       </a>
-                      <div className="text-sm text-muted-foreground">
-                        Featured in "The Age of Big Data", Episode 4
-                      </div>
+                    </div>
+
+                    <div className="group">
+                      <div className="text-xs font-mono text-muted-foreground mb-1">NEWS.PSU.EDU on JANUARY 17, 2020</div>
+                      <a href="#" className="font-bold text-lg hover:text-primary transition-colors block">
+                        Using machine learning to reduce traffic congestion
+                      </a>
+                    </div>
+
+                    <div className="group">
+                      <div className="text-xs font-mono text-muted-foreground mb-1">NEWS.PSU.EDU on AUGUST 16, 2016</div>
+                      <a href="#" className="font-bold text-lg hover:text-primary transition-colors block">
+                        Data on taxi routes and points of interest may improve crime predictions
+                      </a>
                     </div>
                   </div>
                 </div>
