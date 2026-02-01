@@ -377,9 +377,20 @@ export default function Home() {
                     <div className="group">
                       <div className="text-xs font-bold uppercase text-primary mb-1">Tutorial</div>
                       <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Mining Animal Relationships from Movement Traces</h5>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                         Tutorial presented at Symposium on Animal Movement, held at the North Carolina Museum of Natural Sciences in Raleigh on May 7, 2014.
                       </p>
+                      <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden border border-border">
+                        <iframe 
+                          width="100%" 
+                          height="100%" 
+                          src="https://www.youtube.com/embed/uL8ygSjiTe0" 
+                          title="Mining Animal Relationships from Movement Traces" 
+                          frameBorder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
                     </div>
                   </div>
                 </div>
