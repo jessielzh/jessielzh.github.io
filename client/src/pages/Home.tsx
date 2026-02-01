@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen } from "lucide-react";
+import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy } from "lucide-react";
 
 export default function Home() {
   return (
@@ -96,6 +96,63 @@ export default function Home() {
                   AI for Science and Engineering
                 </p>
 
+                {/* Top 5 Cited Work Section */}
+                <div className="mb-16 bg-secondary/30 p-6 border border-border">
+                  <h4 className="text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2 text-primary">
+                    <Trophy className="w-4 h-4" /> Top 5 Cited Work
+                  </h4>
+                  <div className="space-y-6">
+                    <div className="group">
+                      <div className="flex justify-between items-start gap-4">
+                        <a href="https://scholar.google.com/scholar?q=Deep+multi-view+spatial-temporal+network+for+taxi+demand+prediction" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
+                          Deep multi-view spatial-temporal network for taxi demand prediction
+                        </a>
+                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">1549 citations</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1 font-mono">AAAI 2018</div>
+                    </div>
+
+                    <div className="group">
+                      <div className="flex justify-between items-start gap-4">
+                        <a href="https://scholar.google.com/scholar?q=Revisiting+spatial-temporal+similarity%3A+A+deep+learning+framework+for+traffic+prediction" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
+                          Revisiting spatial-temporal similarity: A deep learning framework for traffic prediction
+                        </a>
+                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">1235 citations</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1 font-mono">AAAI 2019</div>
+                    </div>
+
+                    <div className="group">
+                      <div className="flex justify-between items-start gap-4">
+                        <a href="https://scholar.google.com/scholar?q=Generalized+fisher+score+for+feature+selection" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
+                          Generalized fisher score for feature selection
+                        </a>
+                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">1203 citations</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1 font-mono">arXiv 2012</div>
+                    </div>
+
+                    <div className="group">
+                      <div className="flex justify-between items-start gap-4">
+                        <a href="https://scholar.google.com/scholar?q=DRN%3A+A+deep+reinforcement+learning+framework+for+news+recommendation" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
+                          DRN: A deep reinforcement learning framework for news recommendation
+                        </a>
+                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">1005 citations</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1 font-mono">WWW 2018</div>
+                    </div>
+
+                    <div className="group">
+                      <div className="flex justify-between items-start gap-4">
+                        <a href="https://scholar.google.com/scholar?q=Intellilight%3A+A+reinforcement+learning+approach+for+intelligent+traffic+light+control" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors leading-tight">
+                          Intellilight: A reinforcement learning approach for intelligent traffic light control
+                        </a>
+                        <span className="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded whitespace-nowrap">923 citations</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1 font-mono">KDD 2018</div>
+                    </div>
+                  </div>
+                </div>
 
                 <div className="grid gap-12">
                   <div className="group">
