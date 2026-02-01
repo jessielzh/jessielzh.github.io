@@ -17,11 +17,11 @@ export default function Home() {
             <div className="flex items-center gap-6">
               <img src="/logo.png" alt="Jessie Li Logo" className="h-24 w-auto object-contain" />
               <div>
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none mb-2 font-display">
-                  JESSIE LI
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-none mb-2 font-display">
+                  Zhenhui (Jessie) Li
                 </h1>
                 <h2 className="text-xl md:text-2xl font-medium text-muted-foreground tracking-wide">
-                  Zhenhui (Jessie) Li 黎珍辉
+                  黎珍辉
                 </h2>
               </div>
             </div>
@@ -64,12 +64,12 @@ export default function Home() {
               <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Education</h3>
               <ul className="space-y-6">
                 <li className="group">
-                  <div className="font-bold group-hover:text-primary transition-colors">PhD in Computer Science</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">PhD in Computer Science (2012)</div>
                   <div className="text-muted-foreground text-sm">University of Illinois at Urbana-Champaign</div>
                 </li>
                 <li className="group">
-                  <div className="font-bold group-hover:text-primary transition-colors">Bachelor Degree</div>
-                  <div className="text-muted-foreground text-sm">Shanghai Jiao Tong University</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">BEng in Computer Science (2007)</div>
+                  <div className="text-muted-foreground text-sm">ACM Class, Shanghai Jiao Tong University</div>
                 </li>
               </ul>
             </section>
@@ -105,11 +105,11 @@ export default function Home() {
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2 text-xs">
-                        <li>Intellilight: A reinforcement learning approach for intelligent traffic light control (KDD 2018)</li>
-                        <li>Presslight: Learning max pressure control to coordinate traffic signals in arterial network (KDD 2019)</li>
-                        <li>CityFlow: A Multi-Agent Reinforcement Learning Environment for Large Scale City Traffic Scenario (WWW 2019)</li>
-                        <li>Toward a thousand lights: Decentralized deep reinforcement learning for large-scale traffic signal control (AAAI 2020)</li>
-                        <li>Recent Advances in Reinforcement Learning for Traffic Signal Control: A Survey of Models and Evaluation (SIGKDD Explorations 2020)</li>
+                        <li><a href="https://scholar.google.com/scholar?q=Intellilight%3A+A+reinforcement+learning+approach+for+intelligent+traffic+light+control+KDD+2018" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Intellilight: A reinforcement learning approach for intelligent traffic light control (KDD 2018)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Presslight%3A+Learning+max+pressure+control+to+coordinate+traffic+signals+in+arterial+network+KDD+2019" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Presslight: Learning max pressure control to coordinate traffic signals in arterial network (KDD 2019)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=CityFlow%3A+A+Multi-Agent+Reinforcement+Learning+Environment+for+Large+Scale+City+Traffic+Scenario+WWW+2019" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">CityFlow: A Multi-Agent Reinforcement Learning Environment for Large Scale City Traffic Scenario (WWW 2019)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Toward+a+thousand+lights%3A+Decentralized+deep+reinforcement+learning+for+large-scale+traffic+signal+control+AAAI+2020" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Toward a thousand lights: Decentralized deep reinforcement learning for large-scale traffic signal control (AAAI 2020)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Recent+Advances+in+Reinforcement+Learning+for+Traffic+Signal+Control%3A+A+Survey+of+Models+and+Evaluation+SIGKDD+Explorations+2020" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Recent Advances in Reinforcement Learning for Traffic Signal Control: A Survey of Models and Evaluation (SIGKDD Explorations 2020)</a></li>
                       </ul>
                     </div>
 
@@ -129,10 +129,10 @@ export default function Home() {
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2 text-xs">
-                        <li>Searching for Anomalous Methane in Shallow Groundwater near Shale Gas Wells (Journal of Contaminant Hydrology 2016)</li>
-                        <li>Contextual Spatial Outlier Detection with Metric Learning (KDD 2017)</li>
-                        <li>Big groundwater data sets reveal possible rare contamination amid otherwise improved water quality for some analytes in a region of Marcellus Shale development (Environmental Science & Technology 2018)</li>
-                        <li>Knowledge-based Residual Learning (IJCAI 2021)</li>
+                        <li><a href="https://scholar.google.com/scholar?q=Searching+for+Anomalous+Methane+in+Shallow+Groundwater+near+Shale+Gas+Wells+Journal+of+Contaminant+Hydrology+2016" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Searching for Anomalous Methane in Shallow Groundwater near Shale Gas Wells (Journal of Contaminant Hydrology 2016)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Contextual+Spatial+Outlier+Detection+with+Metric+Learning+KDD+2017" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Contextual Spatial Outlier Detection with Metric Learning (KDD 2017)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Big+groundwater+data+sets+reveal+possible+rare+contamination+amid+otherwise+improved+water+quality+for+some+analytes+in+a+region+of+Marcellus+Shale+development+Environmental+Science+%26+Technology+2018" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Big groundwater data sets reveal possible rare contamination amid otherwise improved water quality for some analytes in a region of Marcellus Shale development (Environmental Science & Technology 2018)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Knowledge-based+Residual+Learning+IJCAI+2021" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Knowledge-based Residual Learning (IJCAI 2021)</a></li>
                       </ul>
                     </div>
 
@@ -152,10 +152,10 @@ export default function Home() {
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2 text-xs">
-                        <li>Crime Rate Inference with Big Data (KDD 2016)</li>
-                        <li>Non-Stationary Model for Crime Rate Inference Using Modern Urban Data (Transaction of Big Data 2017)</li>
-                        <li>Region Representation Learning via Mobility Flow (CIKM 2017)</li>
-                        <li>Network spillovers and neighborhood crime: A computational statistics analysis of employment-based networks of neighborhoods (Justice Quarterly 2021)</li>
+                        <li><a href="https://scholar.google.com/scholar?q=Crime+Rate+Inference+with+Big+Data+KDD+2016" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Crime Rate Inference with Big Data (KDD 2016)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Non-Stationary+Model+for+Crime+Rate+Inference+Using+Modern+Urban+Data+Transaction+of+Big+Data+2017" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Non-Stationary Model for Crime Rate Inference Using Modern Urban Data (Transaction of Big Data 2017)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Region+Representation+Learning+via+Mobility+Flow+CIKM+2017" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Region Representation Learning via Mobility Flow (CIKM 2017)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Network+spillovers+and+neighborhood+crime%3A+A+computational+statistics+analysis+of+employment-based+networks+of+neighborhoods+Justice+Quarterly+2021" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Network spillovers and neighborhood crime: A computational statistics analysis of employment-based networks of neighborhoods (Justice Quarterly 2021)</a></li>
                       </ul>
                     </div>
 
@@ -175,10 +175,10 @@ export default function Home() {
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2 text-xs">
-                        <li>Deep multi-view spatial-temporal network for taxi demand prediction (AAAI 2018)</li>
-                        <li>Revisiting spatial-temporal similarity: A deep learning framework for traffic prediction (AAAI 2019)</li>
-                        <li>Learning from multiple cities: A meta-learning approach for spatial-temporal prediction (WWW 2019)</li>
-                        <li>Hierarchically Structured Meta-Learning (ICML 2019)</li>
+                        <li><a href="https://scholar.google.com/scholar?q=Deep+multi-view+spatial-temporal+network+for+taxi+demand+prediction+AAAI+2018" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Deep multi-view spatial-temporal network for taxi demand prediction (AAAI 2018)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Revisiting+spatial-temporal+similarity%3A+A+deep+learning+framework+for+traffic+prediction+AAAI+2019" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Revisiting spatial-temporal similarity: A deep learning framework for traffic prediction (AAAI 2019)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Learning+from+multiple+cities%3A+A+meta-learning+approach+for+spatial-temporal+prediction+WWW+2019" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Learning from multiple cities: A meta-learning approach for spatial-temporal prediction (WWW 2019)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Hierarchically+Structured+Meta-Learning+ICML+2019" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Hierarchically Structured Meta-Learning (ICML 2019)</a></li>
                       </ul>
                     </div>
 
@@ -198,10 +198,10 @@ export default function Home() {
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
                       <ul className="space-y-2 text-xs">
-                        <li>Mining Periodic Behaviors for Moving Objects (KDD 2010)</li>
-                        <li>Swarm: Mining Relaxed Temporal Moving Object Clusters (VLDB 2010)</li>
-                        <li>Mining Following Relationships in Movement Data (ICDM 2013)</li>
-                        <li>Attraction and Avoidance Detection from Movements (VLDB 2014)</li>
+                        <li><a href="https://scholar.google.com/scholar?q=Mining+Periodic+Behaviors+for+Moving+Objects+KDD+2010" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Mining Periodic Behaviors for Moving Objects (KDD 2010)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Swarm%3A+Mining+Relaxed+Temporal+Moving+Object+Clusters+VLDB+2010" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Swarm: Mining Relaxed Temporal Moving Object Clusters (VLDB 2010)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Mining+Following+Relationships+in+Movement+Data+ICDM+2013" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Mining Following Relationships in Movement Data (ICDM 2013)</a></li>
+                        <li><a href="https://scholar.google.com/scholar?q=Attraction+and+Avoidance+Detection+from+Movements+VLDB+2014" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline decoration-primary underline-offset-4 transition-all">Attraction and Avoidance Detection from Movements (VLDB 2014)</a></li>
                       </ul>
                     </div>
 
