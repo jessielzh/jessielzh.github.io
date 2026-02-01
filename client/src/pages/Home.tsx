@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap } from "lucide-react";
+import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap, Moon, Sun } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Home() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
       {/* Grid Background Pattern - Subtle */}
@@ -29,6 +32,17 @@ export default function Home() {
               <a href="mailto:jessielzh@gmail.com" className="hover:text-primary transition-colors flex items-center gap-2 group">
                 jessielzh@gmail.com <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
               </a>
+              <button 
+                onClick={toggleTheme}
+                className="flex items-center gap-2 hover:text-primary transition-colors mt-2"
+                aria-label="Toggle dark mode"
+              >
+                {theme === 'dark' ? (
+                  <>Light Mode <Sun className="w-4 h-4" /></>
+                ) : (
+                  <>Dark Mode <Moon className="w-4 h-4" /></>
+                )}
+              </button>
             </div>
           </div>
         </header>
