@@ -61,22 +61,14 @@ export default function Home() {
                 />
               </div>
 
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Current Position</h3>
-              <ul className="space-y-6">
-                <li className="group">
-                  <div className="font-bold group-hover:text-primary transition-colors">Professor</div>
-                  <div className="text-muted-foreground text-sm">The Hong Kong Polytechnic University (PolyU)</div>
-                </li>
-              </ul>
-              
               <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Experience</h3>
               <ul className="space-y-6">
                 <li className="group">
-                  <div className="font-bold group-hover:text-primary transition-colors">Tenured Professor (2012-2021)</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">Tenured Professor</div>
                   <div className="text-muted-foreground text-sm">Pennsylvania State University</div>
                 </li>
                 <li className="group">
-                  <div className="font-bold group-hover:text-primary transition-colors">Chief Scientist (2021-2026)</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">Chief Scientist</div>
                   <div className="text-muted-foreground text-sm">Hangzhou City Brain</div>
                 </li>
               </ul>
