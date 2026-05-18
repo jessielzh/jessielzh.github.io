@@ -61,14 +61,24 @@ export default function Home() {
                 />
               </div>
 
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Current Position</h3>
+              <ul className="space-y-6">
+                <li className="group">
+                  <div className="font-bold group-hover:text-primary transition-colors">Professor</div>
+                  <div className="text-muted-foreground text-sm">The Hong Kong Polytechnic University (PolyU)</div>
+                </li>
+              </ul>
+            </section>
+
+            <section>
               <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Experience</h3>
               <ul className="space-y-6">
                 <li className="group">
-                  <div className="font-bold group-hover:text-primary transition-colors">Tenured Professor</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">Tenured Professor (2012-2021)</div>
                   <div className="text-muted-foreground text-sm">Pennsylvania State University</div>
                 </li>
                 <li className="group">
-                  <div className="font-bold group-hover:text-primary transition-colors">Chief Scientist</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">Chief Scientist (2021-2026)</div>
                   <div className="text-muted-foreground text-sm">Hangzhou City Brain</div>
                 </li>
               </ul>
@@ -377,20 +387,9 @@ export default function Home() {
                     <div className="group">
                       <div className="text-xs font-bold uppercase text-primary mb-1">Tutorial</div>
                       <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Mining Animal Relationships from Movement Traces</h5>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         Tutorial presented at Symposium on Animal Movement, held at the North Carolina Museum of Natural Sciences in Raleigh on May 7, 2014.
                       </p>
-                      <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden border border-border">
-                        <iframe 
-                          width="100%" 
-                          height="100%" 
-                          src="https://www.youtube.com/embed/uL8ygSjiTe0" 
-                          title="Mining Animal Relationships from Movement Traces" 
-                          frameBorder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowFullScreen
-                        ></iframe>
-                      </div>
                     </div>
                   </div>
                 </div>
