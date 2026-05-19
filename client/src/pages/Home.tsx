@@ -61,7 +61,7 @@ export default function Home() {
                 />
               </div>
 
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Experience (test)</h3>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Experience</h3>
               <ul className="space-y-6">
                 <li className="group">
                   <div className="font-bold group-hover:text-primary transition-colors">Tenured Professor</div>
