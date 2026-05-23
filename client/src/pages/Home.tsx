@@ -61,6 +61,14 @@ export default function Home() {
                 />
               </div>
 
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Current Position</h3>
+              <ul className="space-y-6 mb-10">
+                <li className="group">
+                  <div className="font-bold group-hover:text-primary transition-colors">Professor</div>
+                  <div className="text-muted-foreground text-sm">The Hong Kong Polytechnic University (PolyU)</div>
+                </li>
+              </ul>
+
               <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-primary font-mono">Experience</h3>
               <ul className="space-y-6">
                 <li className="group">
