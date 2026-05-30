@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap, Moon, Sun } from "lucide-react";
+import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap, Moon, Sun, Sparkles } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Home() {
@@ -18,10 +18,9 @@ export default function Home() {
         <header className="mb-24 animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b-4 border-foreground pb-8">
             <div className="flex items-center gap-6">
-              <img src="/logo.png" alt="Jessie Li Logo" className="h-24 w-auto object-contain" />
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-none mb-2 font-display">
-                  Zhenhui (Jessie) Li
+                  Zhenhui Jessie Li
                 </h1>
                 <h2 className="text-xl md:text-2xl font-medium text-muted-foreground tracking-wide">
                   黎珍辉
@@ -109,7 +108,37 @@ export default function Home() {
 
           {/* Right Column: Research & Projects */}
           <div className="md:col-span-8 space-y-20 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
-            
+
+            <section>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2 flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5" /> What's New
+              </h3>
+
+              <div className="border-l-4 border-primary pl-6">
+                <div className="text-xs font-bold uppercase text-primary mb-1 font-mono">New Paper · KDD 2026</div>
+                <h4 className="text-lg font-bold text-foreground mb-1">
+                  <a href="https://jessielzh.com/GLC-road-coordination/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    Local Rules, Global Efficiency: Emergent Coordination on Large-Scale Road Networks
+                  </a>
+                </h4>
+                <div className="text-xs text-muted-foreground italic mb-4 font-mono">Zhenhui Jessie Li</div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Imagine a city full of autonomous vehicles — how could they coordinate to achieve peak efficiency, with no central controller in charge? This paper proposes GLC (Guided Local Coordination), the first algorithm of its kind for large-scale road networks, where vehicles follow simple local rules to collectively minimize delay. Strikingly, left-turning vehicles spontaneously self-organize into circular flows resembling roundabouts — an emergent behavior never explicitly programmed. Validated on Manhattan's road network with 10,000 agents.
+                </p>
+                <div className="flex flex-wrap gap-4 text-xs font-mono">
+                  <a href="https://doi.org/10.1145/3770855.3818071" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                    <ArrowUpRight className="w-3 h-3" /> Paper
+                  </a>
+                  <a href="https://jessielzh.com/GLC-road-coordination/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                    <ArrowUpRight className="w-3 h-3" /> Project Page
+                  </a>
+                  <a href="https://github.com/jessielzh/GLC-road-coordination" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                    <ArrowUpRight className="w-3 h-3" /> Code
+                  </a>
+                </div>
+              </div>
+            </section>
+
             <section>
               <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Research</h3>
               
@@ -264,8 +293,8 @@ export default function Home() {
                     </div>
 
                     <div className="group">
-                      <a href="https://gjzheng.org/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Guanjie Zheng (2015-2020)</a>
-                      <div className="text-sm text-muted-foreground">Assistant Professor at Shanghai Jiao Tong University</div>
+                      <a href="https://jhc.sjtu.edu.cn/~gjzheng/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Guanjie Zheng (2015-2020)</a>
+                      <div className="text-sm text-muted-foreground">Associate Professor at Shanghai Jiao Tong University</div>
                     </div>
 
                     <div className="group">
@@ -274,8 +303,8 @@ export default function Home() {
                     </div>
 
                     <div className="group">
-                      <a href="https://www.linkedin.com/in/hongjian-wang-3b1b1b1b/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Hongjian Wang (2013-2018)</a>
-                      <div className="text-sm text-muted-foreground">Staff ML Engineer at Twitter</div>
+                      <a href="https://www.linkedin.com/in/hongjian-wang-54003968/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Hongjian Wang (2013-2018)</a>
+                      <div className="text-sm text-muted-foreground">Staff Software Engineer at Meta</div>
                     </div>
 
                     <div className="group">
@@ -290,8 +319,8 @@ export default function Home() {
                   
                   <div className="grid gap-4 pl-6 border-l border-border">
                     <div className="group">
-                      <a href="https://thecollege.syr.edu/people/faculty/wen-tao/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Tao Wen (2017-2020)</a>
-                      <div className="text-sm text-muted-foreground">Assistant Professor at Syracuse University</div>
+                      <a href="https://jaywen.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">Tao Wen (2017-2020)</a>
+                      <div className="text-sm text-muted-foreground">Associate Professor at Syracuse University</div>
                     </div>
                   </div>
                 </div>
