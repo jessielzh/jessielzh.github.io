@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap, Moon, Sun, Sparkles } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
+import { TokenUsageHeatmap } from "@/components/TokenUsageHeatmap";
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
@@ -137,6 +138,11 @@ export default function Home() {
                   </a>
                 </div>
               </div>
+            </section>
+
+            <section>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Token Usage</h3>
+              <TokenUsageHeatmap />
             </section>
 
             <section>
