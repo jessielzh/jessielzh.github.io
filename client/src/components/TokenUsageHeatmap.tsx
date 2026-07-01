@@ -8,6 +8,8 @@ interface DailyEntry {
 
 interface UsageData {
   updated_at: string;
+  /** Last fully-synced day; days after this are "no data yet", not zeros. */
+  coverage_through?: string;
   daily: DailyEntry[];
 }
 
@@ -55,6 +57,7 @@ export function TokenUsageHeatmap() {
   const [tooltip, setTooltip] = useState<{
     date: string;
     value: number;
+    pending: boolean;
     x: number;
     y: number;
   } | null>(null);
@@ -102,11 +105,17 @@ export function TokenUsageHeatmap() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
+  // Days after coverage_through aren't synced yet — render them as "no data
+  // yet" rather than confident zeros. Absent field → trust everything (no regression).
+  const coverageDate = new Date((data.coverage_through ?? "9999-12-31") + "T00:00:00");
+
   const startDate = new Date(today);
   startDate.setDate(startDate.getDate() - startDate.getDay());
   startDate.setDate(startDate.getDate() - (numWeeks - 1) * 7);
 
-  const weeks: Array<Array<{ date: string; value: number; level: number; isFuture: boolean }>> = [];
+  const weeks: Array<
+    Array<{ date: string; value: number; level: number; isFuture: boolean; isPending: boolean }>
+  > = [];
   const cur = new Date(startDate);
   for (let w = 0; w < numWeeks; w++) {
     const week = [];
@@ -115,11 +124,22 @@ export function TokenUsageHeatmap() {
       const entry = dailyMap.get(ds);
       const value = entry?.total_tokens ?? 0;
       const isFuture = cur > today;
-      week.push({ date: ds, value, level: isFuture ? 0 : getLevel(value, maxTokens), isFuture });
+      const isPending = !isFuture && cur > coverageDate;
+      week.push({
+        date: ds,
+        value,
+        level: isFuture || isPending ? 0 : getLevel(value, maxTokens),
+        isFuture,
+        isPending,
+      });
       cur.setDate(cur.getDate() + 1);
     }
     weeks.push(week);
   }
+
+  const updatedMs = new Date(data.updated_at).getTime();
+  const isStale =
+    Number.isFinite(updatedMs) && Date.now() - updatedMs > 36 * 3600 * 1000;
 
   // Stats
   const totalTokens = data.daily.reduce((s, d) => s + d.total_tokens, 0);
@@ -131,7 +151,8 @@ export function TokenUsageHeatmap() {
     e: React.MouseEvent<HTMLDivElement>,
     date: string,
     value: number,
-    isFuture: boolean
+    isFuture: boolean,
+    pending: boolean
   ) => {
     if (isFuture) return;
     const container = containerRef.current;
@@ -141,6 +162,7 @@ export function TokenUsageHeatmap() {
     setTooltip({
       date,
       value,
+      pending,
       x: cellRect.left - cRect.left + cellRect.width / 2,
       y: cellRect.top - cRect.top,
     });
@@ -182,7 +204,8 @@ export function TokenUsageHeatmap() {
             zIndex: 10,
           }}
         >
-          {formatDate(tooltip.date)} — {formatTokens(tooltip.value)}
+          {formatDate(tooltip.date)} —{" "}
+          {tooltip.pending ? "no data yet" : formatTokens(tooltip.value)}
         </div>
       )}
 
@@ -197,16 +220,20 @@ export function TokenUsageHeatmap() {
       >
         {weeks.map((week, wi) => (
           <div key={wi} style={{ display: "flex", flexDirection: "column", gap: GAP }}>
-            {week.map(({ date, value, level, isFuture }) => (
+            {week.map(({ date, value, level, isFuture, isPending }) => (
               <div
                 key={date}
-                className={`${LEVEL_CLASSES[level]} rounded-[2px]`}
+                className={
+                  isPending
+                    ? "rounded-[2px] border border-dashed border-muted-foreground/40"
+                    : `${LEVEL_CLASSES[level]} rounded-[2px]`
+                }
                 style={{
                   width: "100%",
                   aspectRatio: "1",
                   opacity: isFuture ? 0 : 1,
                 }}
-                onMouseEnter={(e) => handleCellEnter(e, date, value, isFuture)}
+                onMouseEnter={(e) => handleCellEnter(e, date, value, isFuture, isPending)}
                 onMouseLeave={() => setTooltip(null)}
               />
             ))}
@@ -234,6 +261,11 @@ export function TokenUsageHeatmap() {
           day: "numeric",
           year: "numeric",
         })}
+        {isStale && (
+          <span style={{ color: "var(--color-destructive, #c0392b)" }}>
+            {" · ⚠ may be stale"}
+          </span>
+        )}
       </p>
     </div>
   );

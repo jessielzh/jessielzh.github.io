@@ -13,14 +13,60 @@ import json
 import os
 import glob
 import sys
+import socket
 import subprocess
-from datetime import datetime, timezone
+import time
+from datetime import datetime, timezone, timedelta
 from collections import defaultdict
 
 CLAUDE_DIR = os.path.expanduser("~/.claude/projects")
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_PATH = os.path.join(REPO_ROOT, "client/public/token-usage.json")
 CURSOR_STATIC_PATH = os.path.join(REPO_ROOT, "scripts/cursor-usage-static.json")
+STATUS_PATH = os.path.expanduser("~/.claude/usage-sync-status.json")
+
+
+def _read_status() -> dict:
+    try:
+        with open(STATUS_PATH) as f:
+            return json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def _write_status(**fields) -> None:
+    status = _read_status()
+    status.update(fields)
+    try:
+        with open(STATUS_PATH, "w") as f:
+            json.dump(status, f, indent=2)
+    except OSError:
+        pass
+
+
+def already_synced_today() -> bool:
+    """True if a push already succeeded on today's (local) date."""
+    return _read_status().get("last_success_date") == datetime.now().strftime("%Y-%m-%d")
+
+
+def github_reachable() -> bool:
+    """Quick TCP check so network-less DarkWake ticks no-op instead of failing."""
+    try:
+        with socket.create_connection(("github.com", 443), timeout=5):
+            return True
+    except OSError:
+        return False
+
+
+def notify(title: str, message: str) -> None:
+    """Best-effort macOS desktop notification."""
+    try:
+        subprocess.run(
+            ["osascript", "-e", f'display notification "{message}" with title "{title}"'],
+            check=False,
+        )
+    except OSError:
+        pass
 
 
 def iter_assistant_messages():
@@ -55,6 +101,19 @@ def iter_assistant_messages():
 
 def main():
     push = "--push" in sys.argv
+    scheduled = "--scheduled" in sys.argv
+
+    # In --scheduled mode (launchd, every 30 min) guard the frequent ticks up
+    # front, before any work: skip if today already synced, and no-op quietly
+    # if offline (e.g. a network-less DarkWake). This also avoids rewriting the
+    # data file on skipped ticks. Manual `--push` runs bypass both guards.
+    if push and scheduled:
+        if already_synced_today():
+            print("Already synced today; nothing to do.")
+            return
+        if not github_reachable():
+            print("No network; will retry on next tick.")
+            return
 
     # Aggregate by date
     by_date: dict[str, dict] = defaultdict(lambda: {
@@ -124,8 +183,14 @@ def main():
             entry["cursor_tokens"] = d["cursor_tokens"]
         daily.append(entry)
 
+    # Last fully-complete day the pipeline vouches for (UTC, matching how
+    # `date` buckets above are derived). Days after this are "not synced yet"
+    # rather than genuine zeros — the website renders them distinctly.
+    coverage_through = (datetime.now(timezone.utc).date() - timedelta(days=1)).isoformat()
+
     output = {
         "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "coverage_through": coverage_through,
         "daily": daily,
     }
 
@@ -136,6 +201,9 @@ def main():
     print(f"Wrote {len(daily)} days from {total_messages} messages → {OUTPUT_PATH}")
 
     if push:
+        now_iso = datetime.now().isoformat(timespec="seconds")
+        today_str = datetime.now().strftime("%Y-%m-%d")
+
         subprocess.run(["git", "-C", REPO_ROOT, "add", "client/public/token-usage.json"], check=True)
         result = subprocess.run(
             ["git", "-C", REPO_ROOT, "diff", "--staged", "--quiet"]
@@ -145,10 +213,46 @@ def main():
                 ["git", "-C", REPO_ROOT, "commit", "-m", "chore: update Claude Code usage data"],
                 check=True,
             )
-            subprocess.run(["git", "-C", REPO_ROOT, "push"], check=True)
-            print("Committed and pushed.")
+            print("Committed.")
         else:
             print("No changes to commit.")
+
+        # Push any commits the remote is missing. This also catches up commits
+        # from earlier runs whose push failed while offline.
+        ahead = subprocess.run(
+            ["git", "-C", REPO_ROOT, "rev-list", "--count", "@{upstream}..HEAD"],
+            capture_output=True, text=True,
+        )
+        pending = int(ahead.stdout.strip() or "0")
+
+        if pending == 0:
+            print("Nothing to push.")
+            _write_status(last_attempt=now_iso, last_success=now_iso,
+                          last_success_date=today_str, last_error=None,
+                          pending_commits=0)
+            return
+
+        # Retry with backoff — a run can land in a brief window before Wi-Fi is
+        # fully up, and a single timeout must not strand commits.
+        delays = [0, 15, 60, 180]
+        for attempt, delay in enumerate(delays, 1):
+            if delay:
+                time.sleep(delay)
+            if subprocess.run(["git", "-C", REPO_ROOT, "push"]).returncode == 0:
+                print(f"Pushed {pending} commit(s).")
+                _write_status(last_attempt=now_iso, last_success=now_iso,
+                              last_success_date=today_str, last_error=None,
+                              pending_commits=0)
+                return
+            print(f"Push attempt {attempt}/{len(delays)} failed.")
+
+        # Network was reachable but every push attempt still failed — a genuine
+        # failure worth surfacing.
+        err = f"push failed after {len(delays)} attempts; {pending} commit(s) still local"
+        print(f"ERROR: {err}. Will retry next run.")
+        _write_status(last_attempt=now_iso, last_error=err, pending_commits=pending)
+        notify("Usage sync failed", err)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
