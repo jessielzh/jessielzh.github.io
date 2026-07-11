@@ -88,7 +88,18 @@ def iter_assistant_messages():
                     ts = obj.get("timestamp", "")
                     if not ts:
                         continue
-                    date = ts[:10]  # "YYYY-MM-DD"
+                    # Timestamps are UTC ISO (…Z). Bucket by *local* date so the
+                    # data lines up with the heatmap, which renders cells and
+                    # "today" in local time. Fall back to the raw UTC prefix if
+                    # parsing ever fails.
+                    try:
+                        date = (
+                            datetime.fromisoformat(ts.replace("Z", "+00:00"))
+                            .astimezone()
+                            .strftime("%Y-%m-%d")
+                        )
+                    except ValueError:
+                        date = ts[:10]  # "YYYY-MM-DD"
                     msg = obj.get("message") or {}
                     usage = msg.get("usage")
                     if not usage:
@@ -183,10 +194,12 @@ def main():
             entry["cursor_tokens"] = d["cursor_tokens"]
         daily.append(entry)
 
-    # Last fully-complete day the pipeline vouches for (UTC, matching how
-    # `date` buckets above are derived). Days after this are "not synced yet"
-    # rather than genuine zeros — the website renders them distinctly.
-    coverage_through = (datetime.now(timezone.utc).date() - timedelta(days=1)).isoformat()
+    # Last fully-complete day the pipeline vouches for. Computed in *local* time
+    # to match the local-date buckets above and the heatmap's local "today";
+    # a UTC basis lagged an extra day for east-of-UTC users syncing in the
+    # morning. Days after this are "not synced yet" rather than genuine zeros —
+    # the website renders them distinctly.
+    coverage_through = (datetime.now().date() - timedelta(days=1)).isoformat()
 
     output = {
         "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
