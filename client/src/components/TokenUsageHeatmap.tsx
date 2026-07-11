@@ -13,6 +13,13 @@ interface UsageData {
   daily: DailyEntry[];
 }
 
+function toLocalDateString(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 function formatTokens(n: number): string {
   if (n >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(1)}B`;
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
@@ -120,7 +127,7 @@ export function TokenUsageHeatmap() {
   for (let w = 0; w < numWeeks; w++) {
     const week = [];
     for (let d = 0; d < 7; d++) {
-      const ds = cur.toISOString().slice(0, 10);
+      const ds = toLocalDateString(cur);
       const entry = dailyMap.get(ds);
       const value = entry?.total_tokens ?? 0;
       const isFuture = cur > today;
