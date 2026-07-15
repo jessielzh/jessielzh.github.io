@@ -443,6 +443,13 @@ export default function Home() {
                   
                   <div className="grid gap-6 pl-6 border-l border-border">
                     <div className="group">
+                      <div className="text-xs font-mono text-muted-foreground mb-1">HZYL.HANGZHOU.COM.CN on OCTOBER 14, 2022</div>
+                      <a href="https://hzyl.hangzhou.com.cn/content/content_8375093.html" target="_blank" rel="noopener noreferrer" className="font-bold text-lg hover:text-primary transition-colors block">
+                        Hangzhou Outstanding Young Talents
+                      </a>
+                    </div>
+
+                    <div className="group">
                       <div className="text-xs font-mono text-muted-foreground mb-1">NEWS.PSU.EDU on APRIL 28, 2021</div>
                       <a href="#" className="font-bold text-lg hover:text-primary transition-colors block">
                         After change of course, IST alumnus lands career in academics
