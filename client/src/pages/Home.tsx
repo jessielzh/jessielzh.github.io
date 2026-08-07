@@ -141,17 +141,27 @@ export default function Home() {
             </section>
 
             <section>
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2 flex items-center gap-2">
-                <UserPlus className="w-3.5 h-3.5" /> Openings
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                I'm looking for Research Assistants — could turn into a PhD, could be an internship, could just be a short project. You don't need to be from a top school, have a perfect GPA, or already have a publication. What I actually care about is whether you're good at getting AI to do creative things. So along with your CV, tell me: how many tokens have you used recently, and what's the most interesting thing you built with them? Surprise me.
-              </p>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Token Usage</h3>
+              <TokenUsageHeatmap />
             </section>
 
             <section>
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Token Usage</h3>
-              <TokenUsageHeatmap />
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2 flex items-center gap-2">
+                <UserPlus className="w-3.5 h-3.5" /> Openings
+              </h3>
+
+              <div className="border-l-4 border-primary pl-6">
+                <p className="text-lg font-bold text-foreground mb-3 leading-snug">
+                  I'm looking for Research Assistants — could turn into a PhD, could be an internship, could just be a short project.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  You don't need to be from a top school, have a perfect GPA, or already have a publication. What I actually care about is whether you're good at getting AI to do creative things.
+                </p>
+                <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4 text-foreground">
+                  Along with your CV, tell me: how many tokens have you used recently, and what's the most interesting thing you built with them?
+                </div>
+                <p className="text-sm font-bold text-primary italic">Surprise me.</p>
+              </div>
             </section>
 
             <section>
