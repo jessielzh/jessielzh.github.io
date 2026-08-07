@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap, Moon, Sun, Sparkles } from "lucide-react";
+import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap, Moon, Sun, Sparkles, UserPlus } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { TokenUsageHeatmap } from "@/components/TokenUsageHeatmap";
 
@@ -138,6 +138,15 @@ export default function Home() {
                   </a>
                 </div>
               </div>
+            </section>
+
+            <section>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2 flex items-center gap-2">
+                <UserPlus className="w-3.5 h-3.5" /> Openings
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                I'm looking for Research Assistants — could turn into a PhD, could be an internship, could just be a short project. You don't need to be from a top school, have a perfect GPA, or already have a publication. What I actually care about is whether you're good at getting AI to do creative things. So along with your CV, tell me: how many tokens have you used recently, and what's the most interesting thing you built with them? Surprise me.
+              </p>
             </section>
 
             <section>
