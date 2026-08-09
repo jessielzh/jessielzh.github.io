@@ -127,7 +127,7 @@ export default function Home() {
                   Imagine a city full of autonomous vehicles — how could they coordinate to achieve peak efficiency, with no central controller in charge? This paper proposes GLC (Guided Local Coordination), the first algorithm of its kind for large-scale road networks, where vehicles follow simple local rules to collectively minimize delay. Strikingly, left-turning vehicles spontaneously self-organize into circular flows resembling roundabouts — an emergent behavior never explicitly programmed. Validated on Manhattan's road network with 10,000 agents.
                 </p>
                 <div className="flex flex-wrap gap-4 text-xs font-mono">
-                  <a href="/papers/2026-kdd-GLC-final.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                  <a href="https://doi.org/10.1145/3770855.3818071" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
                     <ArrowUpRight className="w-3 h-3" /> Paper
                   </a>
                   <a href="https://jessielzh.com/GLC-road-coordination/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
