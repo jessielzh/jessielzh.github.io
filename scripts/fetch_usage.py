@@ -110,6 +110,43 @@ def iter_assistant_messages():
             continue
 
 
+def merge_previous(by_date: dict) -> int:
+    """Carry forward days the local transcripts no longer cover.
+
+    Claude Code prunes ~/.claude/projects transcripts after `cleanupPeriodDays`
+    (30 by default), so a from-scratch rebuild silently drops every day older
+    than that window — past months decayed to zeros on the heatmap. The
+    published file is the long-term record, so re-read it and keep, per date,
+    whichever version reports more tokens: the fresh scan wins for days still
+    on disk (a day can still be accumulating), the old file wins for days that
+    have aged out.
+    """
+    try:
+        with open(OUTPUT_PATH, encoding="utf-8") as f:
+            previous = json.load(f).get("daily", [])
+    except (OSError, json.JSONDecodeError):
+        return 0
+
+    carried = 0
+    for entry in previous:
+        date = entry.get("date")
+        if not date:
+            continue
+        if by_date.get(date, {}).get("total_tokens", 0) >= entry.get("total_tokens", 0):
+            continue
+        by_date[date] = {
+            "uncached_input_tokens": entry.get("uncached_input_tokens", 0),
+            "output_tokens": entry.get("output_tokens", 0),
+            "cache_creation_tokens": entry.get("cache_creation_tokens", 0),
+            "cache_read_tokens": entry.get("cache_read_tokens", 0),
+            "total_tokens": entry.get("total_tokens", 0),
+            "models": dict(entry.get("models") or {}),
+            "cursor_tokens": entry.get("cursor_tokens", 0),
+        }
+        carried += 1
+    return carried
+
+
 def main():
     push = "--push" in sys.argv
     scheduled = "--scheduled" in sys.argv
@@ -176,6 +213,11 @@ def main():
                 by_date[date]["total_tokens"] = tokens
                 by_date[date]["models"] = defaultdict(int)
         print(f"Merged {len(cursor_entries)} Cursor days from static file")
+
+    # Preserve days that have aged out of the local transcript window
+    carried = merge_previous(by_date)
+    if carried:
+        print(f"Carried forward {carried} day(s) from the published file")
 
     # Build sorted output list
     daily = []
