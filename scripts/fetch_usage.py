@@ -49,6 +49,27 @@ def already_synced_today() -> bool:
     return _read_status().get("last_success_date") == datetime.now().strftime("%Y-%m-%d")
 
 
+def warn_if_stale(max_quiet_days: int = 7) -> None:
+    """Surface a long silent gap before it costs data.
+
+    Claude Code keeps transcripts for 30 days, so a day is only recoverable
+    while a sync lands inside that window. A run that keeps no-opping (offline
+    ticks, a broken plist) is otherwise completely silent until a month of
+    usage has already been lost.
+    """
+    last = _read_status().get("last_success_date")
+    if not last:
+        return
+    try:
+        quiet = (datetime.now().date() - datetime.strptime(last, "%Y-%m-%d").date()).days
+    except ValueError:
+        return
+    if quiet > max_quiet_days:
+        msg = f"no successful sync for {quiet} days (data is lost after 30)"
+        print(f"WARNING: {msg}")
+        notify("Usage sync stale", msg)
+
+
 def github_reachable() -> bool:
     """Quick TCP check so network-less DarkWake ticks no-op instead of failing."""
     try:
@@ -121,11 +142,20 @@ def merge_previous(by_date: dict) -> int:
     on disk (a day can still be accumulating), the old file wins for days that
     have aged out.
     """
+    if not os.path.exists(OUTPUT_PATH):
+        return 0
     try:
         with open(OUTPUT_PATH, encoding="utf-8") as f:
             previous = json.load(f).get("daily", [])
-    except (OSError, json.JSONDecodeError):
-        return 0
+    except (OSError, json.JSONDecodeError) as exc:
+        # The file exists but cannot be read. Rewriting now would publish only
+        # the last 30 days and commit the loss, so bail out instead and let a
+        # human look at it.
+        err = f"cannot read {OUTPUT_PATH}: {exc}"
+        print(f"ERROR: {err}. Refusing to overwrite the usage history.")
+        _write_status(last_error=err)
+        notify("Usage sync failed", "token-usage.json unreadable; history NOT overwritten")
+        sys.exit(1)
 
     carried = 0
     for entry in previous:
@@ -156,6 +186,7 @@ def main():
     # if offline (e.g. a network-less DarkWake). This also avoids rewriting the
     # data file on skipped ticks. Manual `--push` runs bypass both guards.
     if push and scheduled:
+        warn_if_stale()
         if already_synced_today():
             print("Already synced today; nothing to do.")
             return
