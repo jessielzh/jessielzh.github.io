@@ -136,6 +136,9 @@ export default function Home() {
                   <a href="https://github.com/jessielzh/GLC-road-coordination" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
                     <ArrowUpRight className="w-3 h-3" /> Code
                   </a>
+                  <a href="https://jessielzh.com/GLC-road-coordination/slides.html" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                    <ArrowUpRight className="w-3 h-3" /> Slides
+                  </a>
                 </div>
               </div>
             </section>
