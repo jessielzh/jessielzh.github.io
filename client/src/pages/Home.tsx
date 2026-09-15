@@ -154,6 +154,7 @@ export default function Home() {
               </h3>
 
               <div className="border-l-4 border-primary pl-6">
+                <div className="text-xs font-bold uppercase text-primary mb-1 font-mono">Fall 2026</div>
                 <h4 className="text-lg font-bold text-foreground">
                   <a href="https://jessielzh.com/comp5423/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors inline-flex items-center gap-1">
                     COMP5423 · Natural Language Processing <ArrowUpRight className="w-4 h-4" />
