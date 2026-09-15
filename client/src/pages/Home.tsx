@@ -150,6 +150,20 @@ export default function Home() {
 
             <section>
               <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2 flex items-center gap-2">
+                <BookOpen className="w-3.5 h-3.5" /> Teaching
+              </h3>
+
+              <div className="border-l-4 border-primary pl-6">
+                <h4 className="text-lg font-bold text-foreground">
+                  <a href="https://jessielzh.com/comp5423/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors inline-flex items-center gap-1">
+                    COMP5423 · Natural Language Processing <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                </h4>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2 flex items-center gap-2">
                 <UserPlus className="w-3.5 h-3.5" /> Openings
               </h3>
 
