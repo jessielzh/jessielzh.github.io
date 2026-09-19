@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Kai's History Words</title>
+<style>
+  :root{
+    --bg:#f6f3ec; --card:#fffdf8; --ink:#232019; --muted:#6f6758;
+    --line:#e3dcce; --accent:#8a5a2b; --accent-soft:#f0e3d2;
+    --good:#2f7d52; --again:#b4521f; --shadow:0 1px 2px rgba(35,32,25,.06),0 8px 24px rgba(35,32,25,.07);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#17150f; --card:#221f18; --ink:#f2ece0; --muted:#a79c88;
+      --line:#38332a; --accent:#e0b07a; --accent-soft:#33291d;
+      --good:#6fcf97; --again:#f0a373; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink); min-height:100vh;
+    font:16px/1.5 ui-rounded,"SF Pro Rounded",-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB",sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:24px 16px 48px}
+  h1{font-size:22px;margin:0 0 2px;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 24px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+  .label{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    appearance:none;font:inherit;font-weight:600;cursor:pointer;
+    background:transparent;color:var(--ink);border:1.5px solid var(--line);
+    border-radius:999px;padding:10px 16px;transition:.12s;
+  }
+  .chip:hover{border-color:var(--accent)}
+  .chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+  .chip small{display:block;font-weight:400;font-size:11px;color:var(--muted);margin-top:1px}
+  .chip[aria-pressed="true"] small{color:var(--accent);opacity:.8}
+  .modes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mode{
+    appearance:none;font:inherit;cursor:pointer;text-align:left;
+    background:transparent;color:var(--ink);border:1.5px solid var(--line);
+    border-radius:14px;padding:14px;transition:.12s;
+  }
+  .mode:hover{border-color:var(--accent)}
+  .mode[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent)}
+  .mode b{display:block;font-size:18px;text-align:center}
+  .mode[aria-pressed="true"] b{color:var(--accent)}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .btn{
+    appearance:none;font:inherit;font-weight:700;cursor:pointer;
+    background:var(--accent);color:var(--bg);border:none;border-radius:14px;
+    padding:15px 22px;font-size:17px;transition:.12s;
+  }
+  .btn:hover{filter:brightness(1.08)}
+  .btn.ghost{background:transparent;color:var(--muted);border:1.5px solid var(--line);font-weight:600;font-size:15px;padding:12px 18px}
+  .btn.ghost:hover{color:var(--ink);border-color:var(--accent)}
+  .btn.wide{width:100%}
+
+  /* ---- session ---- */
+  .top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .bar{flex:1;height:7px;background:var(--line);border-radius:99px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .25s}
+  .count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .x{appearance:none;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:0 4px;line-height:1}
+
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:22px;
+    box-shadow:var(--shadow);padding:30px 22px;min-height:min(62vh,440px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  }
+  .cue{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:18px}
+  .word{font-size:clamp(34px,8.5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0}
+  .chunks{margin-top:8px;font-size:clamp(15px,3.6vw,19px);color:var(--muted);letter-spacing:.06em}
+  .hint{margin-top:6px;font-size:14px;color:var(--accent);font-weight:600}
+  .zh{margin-top:16px;font-size:clamp(22px,5.5vw,30px);font-weight:700}
+  .en{margin-top:8px;font-size:clamp(16px,4vw,20px);color:var(--muted);max-width:30ch;line-height:1.45}
+  .timer{
+    margin-top:26px;width:64px;height:64px;border-radius:50%;
+    border:3px solid var(--accent-soft);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;
+  }
+  .timer.pulse{animation:pop .9s ease-in-out infinite}
+  @keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+  .blank{margin-top:26px;height:64px;display:flex;align-items:center}
+  .speaker{appearance:none;background:var(--accent-soft);border:none;color:var(--accent);
+    border-radius:999px;padding:11px 20px;font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+  .rate{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+  .rate button{
+    appearance:none;font:inherit;font-weight:700;font-size:17px;cursor:pointer;
+    border-radius:16px;padding:18px 12px;border:2px solid;transition:.12s;background:transparent;
+  }
+  .rate .ok{color:var(--good);border-color:var(--good)}
+  .rate .no{color:var(--again);border-color:var(--again)}
+  .rate button:hover{transform:translateY(-1px)}
+  .rate small{display:block;font-weight:500;font-size:12px;opacity:.75;margin-top:2px}
+  .keys{text-align:center;color:var(--muted);font-size:12px;margin-top:14px}
+
+  /* ---- done ---- */
+  .score{font-size:56px;font-weight:800;text-align:center;letter-spacing:-.02em}
+  .scoresub{text-align:center;color:var(--muted);margin:2px 0 20px}
+  .misslist{list-style:none;padding:0;margin:0 0 18px}
+  .misslist li{padding:11px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+  .misslist b{font-size:17px}
+  .misslist span{color:var(--muted);font-size:14px;text-align:right}
+  .history{color:var(--muted);font-size:13px;margin-top:4px}
+  .prev{list-style:none;padding:0;margin:0}
+  .prev li{display:flex;gap:12px;align-items:baseline;padding:8px 6px;border-top:1px solid var(--line);
+    border-radius:10px;cursor:pointer;transition:.1s}
+  .prev li:first-child{border-top:none}
+  .prev li:hover{background:var(--accent-soft)}
+  .prev .num{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;min-width:18px}
+  .prev .body{flex:1}
+  .prev .hdr{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .prev b{font-size:17px}
+  .prev .cn{font-weight:700;color:var(--accent)}
+  .prev .def{display:block;color:var(--muted);font-size:13px;line-height:1.4;margin-top:2px}
+  .prev .wk{padding:12px 6px 4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);font-weight:700;border-top:1px solid var(--line);cursor:default}
+  .prev .wk:hover{background:transparent}
+  .grade{text-align:center;font-size:19px;font-weight:800;color:var(--accent);margin:6px 0 0;letter-spacing:.02em}
+  .rcname{font-weight:700;font-size:15px;margin:0 0 8px}
+  .rc{list-style:none;padding:0;margin:0}
+  .rc li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:15px}
+  .rc li:first-child{border-top:none}
+  .rc .val{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+  .rc .dim{color:var(--muted);font-weight:500}
+  .rc .tot{border-top:2px solid var(--line);font-weight:800;padding-top:11px}
+  .rc .tot .val{color:var(--accent)}
+  .rcnote{color:var(--muted);font-size:12.5px;margin:10px 0 0}
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= SETUP ================= -->
+  <section id="setup">
+    <h1>Kai's History Words</h1>
+    <p class="sub">No spelling — just read it and know what it means.</p>
+
+    <div class="panel">
+      <p class="label">Pick a week</p>
+      <div class="chips" id="weeks" role="radiogroup"></div>
+      <p class="label" id="prevTitle" style="margin:18px 0 6px"></p>
+      <ul class="prev" id="preview"></ul>
+      <p class="rcnote">Look them over first — tap any word to hear it.</p>
+    </div>
+
+    <div class="panel">
+      <p class="label">What to practice</p>
+      <div class="modes">
+        <button class="mode" id="mRead" aria-pressed="true"><b>🗣 Read</b></button>
+        <button class="mode" id="mUnd" aria-pressed="false"><b>💡 Understand</b></button>
+      </div>
+    </div>
+
+    <button class="btn wide" id="start">Start →</button>
+    <div class="panel" id="reportPanel" style="margin-top:16px" hidden>
+      <p class="label">Report card</p>
+      <div id="report"></div>
+    </div>
+  </section>
+
+  <!-- ================= SESSION ================= -->
+  <section id="session" hidden>
+    <div class="top">
+      <button class="x" id="quit" title="Quit">✕</button>
+      <div class="bar"><i id="barFill"></i></div>
+      <div class="count" id="count"></div>
+    </div>
+
+    <div class="card" id="card">
+      <p class="cue" id="cue"></p>
+      <p class="word" id="word"></p>
+      <p class="chunks" id="chunks" hidden></p>
+      <p class="hint" id="hint" hidden></p>
+      <p class="zh" id="zh" hidden></p>
+      <p class="en" id="en" hidden></p>
+      <div class="timer" id="timer" hidden>5</div>
+      <div class="blank" id="blank" hidden><button class="speaker" id="replay">🔊 Hear it again</button></div>
+    </div>
+
+    <div class="rate" id="rate" hidden>
+      <button class="ok" id="rOk"></button>
+      <button class="no" id="rNo"></button>
+    </div>
+    <p class="keys">space = skip the wait · 1 = got it · 2 = practice again</p>
+  </section>
+
+  <!-- ================= DONE ================= -->
+  <section id="done" hidden>
+    <div class="panel">
+      <p class="score" id="score"></p>
+      <p class="grade" id="grade"></p>
+      <p class="scoresub" id="scoresub"></p>
+      <ul class="misslist" id="misslist"></ul>
+      <button class="btn wide" id="again" hidden>Practice the missed words →</button>
+    </div>
+    <div class="panel" id="doneReport"></div>
+    <button class="btn ghost wide" id="home">Back to start</button>
+  </section>
+
+</div>
+
+<script>
+/* =========================================================
+   Word list — from Kai's Week 1–5 History Key Vocabulary sheets.
+   Meanings rewritten short + kid-language + tied to the unit
+   (ancient China: geography → Shang → Zhou/Confucius → Qin → Great Wall).
+   ========================================================= */
+const WEEKS = [
+ { n:1, title:"地理 · 时间工具", words:[
+  {w:"civilization", zh:"文明", en:"a big society with cities, writing and rulers", ch:"civ·i·li·za·tion"},
+  {w:"ancient", zh:"古代的", en:"from a very long time ago", ch:"an·cient", hint:"AIN-shunt"},
+  {w:"plateau", zh:"高原", en:"a wide, flat area of high land", ch:"pla·teau", hint:"pla-TOH"},
+  {w:"continent", zh:"大洲", en:"one of the earth's seven huge pieces of land", ch:"con·ti·nent"},
+  {w:"fertile", zh:"肥沃的", en:"land where crops grow well — where civilizations start", ch:"fer·tile", hint:"FUR-tul"},
+  {w:"map", zh:"地图", en:"a drawing that shows where places are"},
+  {w:"isolated", zh:"与世隔绝的", en:"far away and cut off from other people", ch:"i·so·lat·ed"},
+  {w:"landform", zh:"地形", en:"a natural shape of the land — mountain, valley, desert", ch:"land·form"},
+  {w:"chronological", zh:"按时间顺序的", en:"put in the order things happened", ch:"chron·o·log·i·cal", hint:"kron-uh-LOJ-i-kul"},
+  {w:"timeline", zh:"时间线", en:"a line that shows events in time order", ch:"time·line"}
+ ]},
+ { n:2, title:"商朝 · 占卜与王权", words:[
+  {w:"divination", zh:"占卜", en:"asking the gods about the future — the Shang burned bones to do it", ch:"div·i·na·tion", hint:"div-ih-NAY-shun"},
+  {w:"evidence", zh:"证据", en:"things we find that show what really happened", ch:"ev·i·dence"},
+  {w:"flood", zh:"洪水", en:"when a river rises and covers the land"},
+  {w:"oracle", zh:"神谕", en:"an answer from the gods — the Shang carved theirs on oracle bones", ch:"or·a·cle", hint:"OR-uh-kul"},
+  {w:"legend", zh:"传说", en:"an old story about the past that may not be all true", ch:"leg·end"},
+  {w:"reign", zh:"统治期", en:"the time when a king or emperor rules", hint:"sounds like RAIN"},
+  {w:"tyrant", zh:"暴君", en:"a cruel ruler who treats people badly", ch:"ty·rant", hint:"TY-runt"},
+  {w:"dynasty", zh:"朝代", en:"one family ruling a country for many years", ch:"dy·nas·ty", hint:"DY-nuh-stee"},
+  {w:"emperor", zh:"皇帝", en:"the ruler of a whole empire", ch:"em·per·or"},
+  {w:"prosper", zh:"繁荣", en:"to grow rich and do well", ch:"pros·per"}
+ ]},
+ { n:3, title:"周朝 · 孔子与思想", words:[
+  {w:"philosophy", zh:"哲学", en:"ideas about how people should live", ch:"phi·los·o·phy", hint:"fi-LOSS-uh-fee"},
+  {w:"influential", zh:"有影响力的", en:"able to change what other people think or do", ch:"in·flu·en·tial", hint:"in-floo-EN-shul"},
+  {w:"filial piety", zh:"孝", en:"respecting and caring for your parents and elders", ch:"fil·i·al pi·e·ty", hint:"FIL-ee-ul PY-uh-tee"},
+  {w:"hierarchy", zh:"等级制度", en:"people placed in levels, from top to bottom", ch:"hi·er·ar·chy", hint:"HY-er-ar-kee"},
+  {w:"ethics", zh:"道德准则", en:"rules about right and wrong behaviour", ch:"eth·ics"},
+  {w:"currency", zh:"货币", en:"the money a country uses", ch:"cur·ren·cy"},
+  {w:"harmony", zh:"和谐", en:"everyone getting along peacefully", ch:"har·mo·ny"},
+  {w:"duty", zh:"责任", en:"what you are supposed to do for others", ch:"du·ty"},
+  {w:"morality", zh:"品德", en:"knowing what is right and doing it", ch:"mo·ral·i·ty"},
+  {w:"benevolence", zh:"仁", en:"kindness to other people — Confucius' most important idea", ch:"be·nev·o·lence", hint:"buh-NEV-uh-lunce"}
+ ]},
+ { n:4, title:"秦始皇 · 统一", words:[
+  {w:"emperor", zh:"皇帝", en:"the ruler of an empire — Qin Shi Huang was China's first", ch:"em·per·or"},
+  {w:"unification", zh:"统一", en:"joining many separate states into one country", ch:"u·ni·fi·ca·tion"},
+  {w:"Terracotta Army", zh:"兵马俑", en:"thousands of clay soldiers buried to guard Qin Shi Huang", ch:"ter·ra·cot·ta ar·my", hint:"terr-uh-COTT-uh"},
+  {w:"standardization", zh:"标准化", en:"making everything the same — writing, money, cart wheels", ch:"stan·dard·i·za·tion"},
+  {w:"construction", zh:"建造", en:"building big things like walls, roads and canals", ch:"con·struc·tion"},
+  {w:"economy", zh:"经济", en:"how a country makes, sells and uses goods and money", ch:"e·con·o·my", hint:"ih-CON-uh-mee"},
+  {w:"immortality", zh:"长生不老", en:"living forever — Qin Shi Huang spent his life looking for it", ch:"im·mor·tal·i·ty"},
+  {w:"alliances", zh:"联盟", en:"states promising to help each other", ch:"al·li·anc·es", hint:"uh-LY-un-sez"},
+  {w:"centralization", zh:"中央集权", en:"all the power held by one ruler in the capital", ch:"cen·tral·i·za·tion"},
+  {w:"currency", zh:"货币", en:"the money a country uses — Qin made one coin for everyone", ch:"cur·ren·cy"}
+ ]},
+ { n:5, title:"长城 · 遗产", words:[
+  {w:"barrier", zh:"屏障", en:"something that blocks the way — the Great Wall was one", ch:"bar·ri·er"},
+  {w:"signal", zh:"信号", en:"a sign sent to warn people — wall towers sent smoke signals", ch:"sig·nal"},
+  {w:"UNESCO", zh:"联合国教科文组织", en:"the UN group that protects World Heritage sites", ch:"U·NES·CO", hint:"yoo-NESS-koh", say:"you nesco"},
+  {w:"chariot", zh:"战车", en:"a cart pulled by horses, used in battle", ch:"char·i·ot", hint:"CHAIR-ee-ut"},
+  {w:"conquer", zh:"征服", en:"to beat another people and take over their land", ch:"con·quer", hint:"KON-ker"},
+  {w:"mausoleum", zh:"陵墓", en:"a huge tomb built for a ruler", ch:"mau·so·le·um", hint:"maw-suh-LEE-um"},
+  {w:"sacrifice", zh:"牺牲", en:"to give up something important for a bigger goal", ch:"sac·ri·fice"},
+  {w:"inhumane", zh:"不人道的", en:"cruel, with no kindness for people", ch:"in·hu·mane"},
+  {w:"legacy", zh:"遗产", en:"what is left behind for people who come later", ch:"leg·a·cy"}
+ ]}
+];
+
+const STORE = "kai-history-vocab-v1";
+const PAUSE = 5;             // seconds of thinking time
+const SHUFFLE = true;        // words come in random order
+const SPEAK_FIRST = true;    // Understand mode says the word when it appears
+const $ = id => document.getElementById(id);
+
+/* ---------- speech ---------- */
+let voice = null;
+function pickVoice(){
+  const vs = speechSynthesis.getVoices().filter(v => /^en(-|_)/i.test(v.lang));
+  if(!vs.length) return;
+  const pref = ["Samantha","Karen","Daniel","Google US English","Microsoft Aria"];
+  voice = vs.find(v => pref.some(p => v.name.includes(p)))
+       || vs.find(v => /en-US/i.test(v.lang)) || vs[0];
+}
+pickVoice();
+speechSynthesis.onvoiceschanged = pickVoice;
+
+function say(text, rate){
+  try{
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    if(voice) u.voice = voice;
+    u.lang = voice ? voice.lang : "en-US";
+    u.rate = rate || 0.85;
+    speechSynthesis.speak(u);
+  }catch(e){ /* no speech on this device — the rest still works */ }
+}
+const speakWord = it => say(it.say || it.w, 0.8);
+
+/* ---------- setup screen ---------- */
+let picked = new Set([1]);
+let mode = "read";
+
+function uniqueTotal(){
+  const s = new Set();
+  WEEKS.forEach(w => w.words.forEach(x => s.add(x.w)));
+  return s.size;
+}
+function drawWeeks(){
+  const box = $("weeks");
+  const isAll = picked.size === WEEKS.length;   // 单选：一次只练一周，或"全部"
+  box.innerHTML = "";
+  WEEKS.forEach(wk => {
+    const b = document.createElement("button");
+    b.className = "chip";
+    b.setAttribute("role", "radio");
+    b.setAttribute("aria-pressed", !isAll && picked.has(wk.n));
+    b.innerHTML = "Week " + wk.n + "<small>" + wk.title + " · " + wk.words.length + "</small>";
+    b.onclick = () => { picked = new Set([wk.n]); drawWeeks(); drawPreview(); showHistory(); };
+    box.appendChild(b);
+  });
+  const all = document.createElement("button");
+  all.className = "chip";
+  all.setAttribute("role", "radio");
+  all.setAttribute("aria-pressed", isAll);
+  all.innerHTML = "All weeks<small>five weeks mixed · " + uniqueTotal() + "</small>";
+  all.onclick = () => { picked = new Set(WEEKS.map(w => w.n)); drawWeeks(); drawPreview(); showHistory(); };
+  box.appendChild(all);
+}
+function drawPreview(){
+  const ul = $("preview");
+  const wks = WEEKS.filter(w => picked.has(w.n));
+  const total = wks.reduce((n, w) => n + w.words.length, 0);
+  $("prevTitle").textContent = (wks.length === 1 ? "Week " + wks[0].n + " · " + wks[0].title : "All five weeks")
+                             + " · " + total + " words";
+  ul.innerHTML = "";
+  wks.forEach(wk => {
+    if(wks.length > 1){
+      const h = document.createElement("li");
+      h.className = "wk";
+      h.textContent = "Week " + wk.n + " · " + wk.title;
+      ul.appendChild(h);
+    }
+    wk.words.forEach((it, n) => {
+      const li = document.createElement("li");
+      li.innerHTML = "<span class='num'>" + (n + 1) + "</span><span class='body'>" +
+        "<span class='hdr'><b>" + it.w + "</b><span class='cn'>" + it.zh + "</span></span>" +
+        "<span class='def'>" + it.en + "</span></span>";
+      li.onclick = () => speakWord(it);
+      ul.appendChild(li);
+    });
+  });
+}
+
+function setMode(m){
+  mode = m;
+  $("mRead").setAttribute("aria-pressed", m==="read");
+  $("mUnd").setAttribute("aria-pressed", m==="und");
+  showHistory();
+}
+$("mRead").onclick = () => setMode("read");
+$("mUnd").onclick  = () => setMode("und");
+
+function log(){ try{ return JSON.parse(localStorage.getItem(STORE)) || []; }catch(e){ return []; } }
+function saveRun(run){
+  try{ const l = log(); l.unshift(run); localStorage.setItem(STORE, JSON.stringify(l.slice(0,80))); }catch(e){}
+}
+/* 最近一次完整测试（补练不算） */
+function latest(key, m){ return log().find(r => r.weeks === key && r.mode === m && !r.retry); }
+function pct(r){ return Math.round(r.right / r.total * 100); }
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function fmtDate(d){ return MONTHS[d.getMonth()] + " " + d.getDate(); }
+function runDate(run){
+  if(run.ts) return fmtDate(new Date(run.ts));
+  const m = /^(\d{1,2})\/(\d{1,2})$/.exec(run.date || "");   // old records saved as 9/19
+  return m ? MONTHS[+m[1] - 1] + " " + (+m[2]) : (run.date || "");
+}
+
+function grade(p){
+  if(p >= 97) return {g:"A+", s:"⭐⭐⭐⭐⭐", say:"Perfect — this week is in the bag."};
+  if(p >= 90) return {g:"A",  s:"⭐⭐⭐⭐⭐", say:"Great work, almost all right."};
+  if(p >= 80) return {g:"B",  s:"⭐⭐⭐⭐",   say:"Solid — a few still to fix."};
+  if(p >= 70) return {g:"C",  s:"⭐⭐⭐",     say:"You passed. One more round makes it stick."};
+  if(p >= 60) return {g:"D",  s:"⭐⭐",       say:"Worth going through again."};
+  return              {g:"Redo", s:"⭐",     say:"Start with the ones you missed."};
+}
+
+const KEY_ALL = WEEKS.map(w => w.n).join(",");
+function keyLabel(key){ return key === KEY_ALL ? "All five weeks" : "Week " + key; }
+
+/* 一个 week 的成绩单：Read + Understand + 总评 */
+function reportHTML(key){
+  const r = latest(key, "read"), u = latest(key, "und");
+  if(!r && !u) return "";
+  const row = (icon, name, run) => "<li><span>" + icon + " " + name + "</span>" +
+    (run ? "<span class='val'>" + run.right + " / " + run.total + " · " + pct(run) + "% <span class='dim'>last done " + runDate(run) + "</span></span>"
+         : "<span class='val dim'>not yet</span>") + "</li>";
+  let out = "<p class='rcname'>" + keyLabel(key) + "</p><ul class='rc'>" +
+            row("🗣", "Read", r) + row("💡", "Understand", u);
+  if(r && u){
+    const p = Math.round((pct(r) + pct(u)) / 2), g = grade(p);
+    out += "<li class='tot'><span>Week grade</span><span class='val'>" + g.s + " " + g.g + " · " + p + "%</span></li>";
+  }else{
+    out += "<li class='tot'><span class='dim'>Week grade</span><span class='val dim'>do both modes to unlock</span></li>";
+  }
+  return out + "</ul>";
+}
+
+function showHistory(){
+  const keys = WEEKS.map(w => String(w.n)).concat([KEY_ALL]);
+  const html = keys.map(reportHTML).filter(Boolean).join("<div style='height:18px'></div>");
+  $("report").innerHTML = html;
+  $("reportPanel").hidden = !html;
+}
+
+/* ---------- session ---------- */
+let queue = [], i = 0, phase = 0, timer = null, results = [], isRetry = false;
+
+function buildQueue(){
+  let list = [];
+  WEEKS.filter(w => picked.has(w.n)).forEach(w => w.words.forEach(x => list.push(x)));
+  // same word can appear in two weeks (emperor, currency) — keep one
+  const seen = new Set();
+  list = list.filter(x => !seen.has(x.w) && seen.add(x.w));
+  if(SHUFFLE){
+    for(let k = list.length - 1; k > 0; k--){
+      const j = Math.floor(Math.random() * (k + 1));
+      [list[k], list[j]] = [list[j], list[k]];
+    }
+  }
+  return list;
+}
+
+function show(which){
+  ["setup","session","done"].forEach(s => $(s).hidden = (s !== which));
+}
+
+$("start").onclick = () => {
+  queue = buildQueue(); i = 0; results = []; isRetry = false;
+  if(!queue.length) return;
+  show("session");
+  step();
+};
+$("quit").onclick = () => { clearInterval(timer); speechSynthesis.cancel(); show("setup"); };
+$("home").onclick = () => { show("setup"); showHistory(); };
+
+function step(){
+  clearInterval(timer);
+  const it = queue[i];
+  phase = 0;
+  $("barFill").style.width = (i / queue.length * 100) + "%";
+  $("count").textContent = (i + 1) + " / " + queue.length;
+  $("rate").hidden = true;
+  $("blank").hidden = true;
+  $("word").textContent = it.w;
+  $("chunks").hidden = !(mode === "read" && it.ch);
+  if(it.ch) $("chunks").textContent = it.ch;
+  $("hint").hidden = !(mode === "read" && it.hint);
+  if(it.hint) $("hint").textContent = "say it: " + it.hint;
+
+  if(mode === "read"){
+    $("cue").textContent = "READ IT OUT LOUD";
+    $("zh").hidden = false; $("zh").textContent = it.zh;
+    $("en").hidden = false; $("en").textContent = it.en;
+  }else{
+    $("cue").textContent = "WHAT DOES IT MEAN?";
+    $("zh").hidden = true; $("en").hidden = true;
+  }
+  if(SPEAK_FIRST && mode === "und") speakWord(it);
+  countdown();
+}
+
+function countdown(){
+  let left = PAUSE;
+  const t = $("timer");
+  t.hidden = false; t.classList.add("pulse"); t.textContent = left;
+  timer = setInterval(() => {
+    left--;
+    if(left <= 0){ clearInterval(timer); reveal(); }
+    else t.textContent = left;
+  }, 1000);
+}
+
+function reveal(){
+  clearInterval(timer);
+  phase = 1;
+  const it = queue[i];
+  $("timer").hidden = true; $("timer").classList.remove("pulse");
+  $("blank").hidden = false;
+
+  if(mode === "read"){
+    $("cue").textContent = "NOW LISTEN";
+    speakWord(it);
+    $("rOk").innerHTML = "👍 Read it well<small>smooth, no stumble</small>";
+    $("rNo").innerHTML = "🔁 Practice again<small>wrong or stuck</small>";
+  }else{
+    $("cue").textContent = "ANSWER";
+    $("zh").hidden = false; $("zh").textContent = it.zh;
+    $("en").hidden = false; $("en").textContent = it.en;
+    $("chunks").hidden = !it.ch;
+    speakWord(it);
+    $("rOk").innerHTML = "✅ I knew it<small>said the meaning</small>";
+    $("rNo").innerHTML = "❌ Didn't know<small>couldn't remember</small>";
+  }
+  $("rate").hidden = false;
+}
+
+$("replay").onclick = () => speakWord(queue[i]);
+$("rOk").onclick = () => rate(true);
+$("rNo").onclick = () => rate(false);
+
+function rate(ok){
+  results.push({ item: queue[i], ok: ok });
+  i++;
+  if(i < queue.length) step(); else finish();
+}
+
+function finish(){
+  clearInterval(timer); speechSynthesis.cancel();
+  const right = results.filter(r => r.ok).length;
+  const miss  = results.filter(r => !r.ok);
+  const p = Math.round(right / results.length * 100), g = grade(p);
+  $("score").textContent = right + " / " + results.length;
+  $("grade").textContent = g.s + "  " + g.g + " · " + p + "%";
+  $("scoresub").textContent = (isRetry ? "Extra practice done — not counted in the report card." : g.say) +
+    (miss.length ? (mode === "read" ? " Read these again:" : " Remember these meanings:") : " 🎉");
+  const ul = $("misslist"); ul.innerHTML = "";
+  miss.forEach(r => {
+    const li = document.createElement("li");
+    li.innerHTML = "<b>" + r.item.w + "</b><span>" + r.item.zh + " · " + r.item.en + "</span>";
+    ul.appendChild(li);
+  });
+  $("again").hidden = !miss.length;
+  $("again").onclick = () => {
+    queue = miss.map(r => r.item); i = 0; results = []; isRetry = true;
+    show("session"); step();
+  };
+  const key = [...picked].sort().join(",");
+  saveRun({
+    ts: Date.now(), date: fmtDate(new Date()),
+    weeks: key, mode: mode, right: right, total: results.length, retry: isRetry
+  });
+  const rc = reportHTML(key);
+  $("doneReport").innerHTML = rc + (latest(key,"read") && latest(key,"und")
+      ? "" : "<p class='rcnote'>Do the other mode too and this week gets a grade.</p>");
+  $("doneReport").hidden = !rc;
+  showHistory();
+  show("done");
+}
+
+/* ---------- keyboard ---------- */
+document.addEventListener("keydown", e => {
+  if($("session").hidden) return;
+  if(e.key === " " || e.key === "Enter"){
+    e.preventDefault();
+    if(phase === 0) reveal(); else speakWord(queue[i]);
+  }
+  if(phase === 1 && e.key === "1") rate(true);
+  if(phase === 1 && e.key === "2") rate(false);
+});
+$("card").onclick = () => { if(phase === 0) reveal(); };
+
+drawWeeks(); drawPreview(); setMode("read"); showHistory();
+</script>
+</body>
+</html>
