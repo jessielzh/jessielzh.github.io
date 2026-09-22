@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap, Moon, Sun, Sparkles, UserPlus } from "lucide-react";
+import { ArrowUpRight, Mail, Video, Newspaper, Users, Youtube, Mic, BookOpen, Trophy, GraduationCap, Moon, Sun, Sparkles, UserPlus, FlaskConical, Building2 } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { TokenUsageHeatmap } from "@/components/TokenUsageHeatmap";
 
@@ -110,42 +110,60 @@ export default function Home() {
           {/* Right Column: Research & Projects */}
           <div className="md:col-span-8 space-y-20 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
 
-            <section>
+            <section className="space-y-14">
               <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2 flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5" /> What's New
+                <Sparkles className="w-3.5 h-3.5" /> Current Research
               </h3>
 
-              <div className="border-l-4 border-primary pl-6">
-                <div className="text-xs font-bold uppercase text-primary mb-1 font-mono">New Paper · KDD 2026</div>
-                <h4 className="text-lg font-bold text-foreground mb-1">
-                  <a href="https://jessielzh.com/GLC-road-coordination/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                    Local Rules, Global Efficiency: Emergent Coordination on Large-Scale Road Networks
-                  </a>
+              <div>
+                <h4 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Building2 className="w-4 h-4 text-primary shrink-0" /> City Intelligence
                 </h4>
-                <div className="text-xs text-muted-foreground italic mb-4 font-mono">Zhenhui Jessie Li</div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  Imagine a city full of autonomous vehicles — how could they coordinate to achieve peak efficiency, with no central controller in charge? This paper proposes GLC (Guided Local Coordination), the first algorithm of its kind for large-scale road networks, where vehicles follow simple local rules to collectively minimize delay. Strikingly, left-turning vehicles spontaneously self-organize into circular flows resembling roundabouts — an emergent behavior never explicitly programmed. Validated on Manhattan's road network with 10,000 agents.
+
+                <p className="text-base text-foreground leading-snug max-w-2xl mb-8">
+                  Imagine a city full of autonomous vehicles — how could they coordinate to achieve peak efficiency, with no central controller in charge?
                 </p>
-                <div className="flex flex-wrap gap-4 text-xs font-mono">
-                  <a href="https://doi.org/10.1145/3770855.3818071" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
-                    <ArrowUpRight className="w-3 h-3" /> Paper
-                  </a>
-                  <a href="https://jessielzh.com/GLC-road-coordination/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
-                    <ArrowUpRight className="w-3 h-3" /> Project Page
-                  </a>
-                  <a href="https://github.com/jessielzh/GLC-road-coordination" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
-                    <ArrowUpRight className="w-3 h-3" /> Code
-                  </a>
-                  <a href="https://jessielzh.com/GLC-road-coordination/slides.html" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
-                    <ArrowUpRight className="w-3 h-3" /> Slides
-                  </a>
+
+                <div className="border-l-4 border-primary pl-6">
+                  <div className="text-xs font-bold uppercase tracking-wider text-primary mb-2 font-mono">Latest Work · KDD 2026</div>
+                  <h5 className="text-sm font-medium text-foreground mb-2 leading-snug">
+                    <a href="https://jessielzh.com/GLC-road-coordination/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      Local Rules, Global Efficiency: Emergent Coordination on Large-Scale Road Networks
+                    </a>
+                  </h5>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    This paper proposes GLC (Guided Local Coordination), the first algorithm of its kind for large-scale road networks, where vehicles follow simple local rules to collectively minimize delay. Strikingly, left-turning vehicles spontaneously self-organize into circular flows resembling roundabouts — an emergent behavior never explicitly programmed. Validated on Manhattan's road network with 10,000 agents.
+                  </p>
+                  <div className="flex flex-wrap gap-4 text-xs font-mono">
+                    <a href="https://doi.org/10.1145/3770855.3818071" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                      <ArrowUpRight className="w-3 h-3" /> Paper
+                    </a>
+                    <a href="https://jessielzh.com/GLC-road-coordination/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                      <ArrowUpRight className="w-3 h-3" /> Project Page
+                    </a>
+                    <a href="https://github.com/jessielzh/GLC-road-coordination" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                      <ArrowUpRight className="w-3 h-3" /> Code
+                    </a>
+                    <a href="https://jessielzh.com/GLC-road-coordination/slides.html" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                      <ArrowUpRight className="w-3 h-3" /> Slides
+                    </a>
+                  </div>
                 </div>
               </div>
-            </section>
 
-            <section>
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Token Usage</h3>
-              <TokenUsageHeatmap />
+              <div>
+                <h4 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                  <FlaskConical className="w-4 h-4 text-primary shrink-0" /> AI for Science
+                </h4>
+
+                <p className="text-base text-foreground leading-snug max-w-2xl mb-4">
+                  Big science gets the capital; the rest of science waits its turn — what changes when every scientist has an agent of their own?
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                  I'm working to make agents accessible to every scientist — pairing researchers with agents, rather than building one model per problem.
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary font-mono ml-2 whitespace-nowrap">More soon</span>
+                </p>
+              </div>
             </section>
 
             <section>
@@ -164,6 +182,11 @@ export default function Home() {
             </section>
 
             <section>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Token Usage</h3>
+              <TokenUsageHeatmap />
+            </section>
+
+            <section>
               <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2 flex items-center gap-2">
                 <UserPlus className="w-3.5 h-3.5" /> Openings
               </h3>
@@ -173,29 +196,23 @@ export default function Home() {
                   I'm looking for Research Assistants — could turn into a PhD, could be an internship, could just be a short project.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  You don't need to be from a top school, have a perfect GPA, or already have a publication. What I actually care about is whether you're good at getting AI to do creative things.
+                  You don't need to be from a top school, have a perfect GPA, or already have a publication. What I actually care about is whether you share my passion for the questions above, and whether you're good at getting AI to do creative things.
                 </p>
                 <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4 text-foreground">
-                  Along with your CV, tell me: how many tokens have you used recently, and what's the most interesting thing you built with them?
+                  Along with your CV, tell me: which of my current research directions excites you, how many tokens you've used recently, and what's the most interesting thing you built with them?
                 </div>
-                <p className="text-sm font-bold text-primary italic">Surprise me.</p>
+                <p className="text-sm font-bold text-primary italic">Show me your passion and your creativity.</p>
               </div>
             </section>
 
             <section>
-              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Research</h3>
+              <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-primary font-mono border-b border-border pb-2">Past Research</h3>
               
               <div className="prose prose-lg max-w-none text-muted-foreground">
-                <p className="text-xl font-medium text-foreground mb-6">
-                  AI for Science and Engineering
-                </p>
-
-
-
                 <div className="grid gap-12">
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Traffic Signal Control</h4>
-                    <p className="text-sm mb-3">Pioneer in the research topic on reinforcement learning for traffic signal control</p>
+                    <p className="text-sm mb-3">Pioneered the use of reinforcement learning for traffic signal control</p>
                     
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
@@ -219,7 +236,7 @@ export default function Home() {
 
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Environment</h4>
-                    <p className="text-sm mb-3">Big data analysis for water quality in the area of shale gas development</p>
+                    <p className="text-sm mb-3">Big data analysis for water quality in the context of shale gas development</p>
                     
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
@@ -265,7 +282,7 @@ export default function Home() {
 
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Traffic Prediction</h4>
-                    <p className="text-sm mb-3">We are among the first to study deep learning for traffic prediction</p>
+                    <p className="text-sm mb-3">Among the first to study deep learning for traffic prediction</p>
                     
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
@@ -288,7 +305,7 @@ export default function Home() {
 
                   <div className="group">
                     <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Ecology</h4>
-                    <p className="text-sm mb-3">Discover animal behaviors and relationships through their movement traces</p>
+                    <p className="text-sm mb-3">Discovering animal behaviors and relationships through their movement traces</p>
                     
                     <div className="text-sm font-mono bg-secondary/50 p-4 border-l-2 border-primary mb-4">
                       <div className="font-bold mb-2 text-xs uppercase text-muted-foreground">Selected Publications</div>
@@ -475,6 +492,7 @@ export default function Home() {
                   </div>
                 </div>
 
+                {/* Temporarily hidden — In the News
                 <div className="space-y-8">
                   <h4 className="font-bold flex items-center gap-2 text-lg"><Newspaper className="w-5 h-5" /> In the News</h4>
                   
@@ -508,6 +526,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                */}
               </div>
             </section>
           </div>
