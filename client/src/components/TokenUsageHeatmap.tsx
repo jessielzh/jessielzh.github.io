@@ -56,6 +56,7 @@ const LEVEL_CLASSES = [
 const GAP = 3;
 const TARGET_CELL = 14; // target cell width in px
 const CELL_STEP = TARGET_CELL + GAP;
+const STATS_START_DATE = "2026-05-04";
 
 export function TokenUsageHeatmap() {
   const [data, setData] = useState<UsageData | null>(null);
@@ -149,8 +150,11 @@ export function TokenUsageHeatmap() {
     Number.isFinite(updatedMs) && Date.now() - updatedMs > 36 * 3600 * 1000;
 
   // Stats
-  const totalTokens = data.daily.reduce((s, d) => s + d.total_tokens, 0);
-  const firstDate = new Date(data.daily[0].date + "T00:00:00");
+  // Stats count from STATS_START_DATE; earlier sparse days stay on the heatmap only.
+  const totalTokens = data.daily
+    .filter((d) => d.date >= STATS_START_DATE)
+    .reduce((s, d) => s + d.total_tokens, 0);
+  const firstDate = new Date(STATS_START_DATE + "T00:00:00");
   const daySpan = Math.max(1, Math.round((today.getTime() - firstDate.getTime()) / 86400000) + 1);
   const avgTokensPerDay = Math.round(totalTokens / daySpan);
 
@@ -257,7 +261,7 @@ export function TokenUsageHeatmap() {
         }}
       >
         Since{" "}
-        {new Date(data.daily[0].date + "T00:00:00").toLocaleDateString("en", {
+        {firstDate.toLocaleDateString("en", {
           month: "short",
           day: "numeric",
           year: "numeric",
